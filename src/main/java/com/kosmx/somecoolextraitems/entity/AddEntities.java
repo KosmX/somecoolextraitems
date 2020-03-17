@@ -22,7 +22,7 @@ public class AddEntities {
     );
 
     public AddEntities(){
-        registerEntityToSpawn(NETHER_ZOMBIE, EntityCategory.MONSTER, 100, 1, 10, Biomes.NETHER);
+        registerEntityToSpawn(NETHER_ZOMBIE, EntityCategory.MONSTER, 20, 1, 10, Biomes.NETHER);
     }
 
     public void registerEntityToSpawn(EntityType<?> entityType, EntityCategory classification, int amount, int min, int max, Biome... biomes ){

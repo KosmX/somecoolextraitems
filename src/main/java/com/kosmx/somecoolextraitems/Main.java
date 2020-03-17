@@ -22,6 +22,7 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 
 //import com.kosmx.somecoolextraitems.NetherGold;
 import com.kosmx.somecoolextraitems.entity.AddEntities;
+import com.kosmx.somecoolextraitems.items.AddItems;
 import com.kosmx.somecoolextraitems.tools.*;
 //import com.mojang.datafixers.types.templates.Tag;
 
@@ -63,6 +64,7 @@ public class Main implements ModInitializer {
 
         RegistryEntryAddedCallback.event(Registry.BIOME).register((i, dentifier, biome) -> netherGoldGeneration(biome));
         new AddEntities();
+        new AddItems();
     }
 
     public static void log(Level level, String message) {
