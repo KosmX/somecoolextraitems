@@ -8,8 +8,6 @@ import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 
@@ -23,11 +21,9 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 
 //import com.kosmx.somecoolextraitems.NetherGold;
-import com.kosmx.somecoolextraitems.Materials.*;
 import com.kosmx.somecoolextraitems.entity.AddEntities;
 import com.kosmx.somecoolextraitems.tools.*;
 //import com.mojang.datafixers.types.templates.Tag;
-import com.kosmx.somecoolextraitems.items.*;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -40,10 +36,7 @@ public class Main implements ModInitializer {
     public static final String MOD_ID = "somecoolextraitems";
     public static final String MOD_NAME = "somecoolextraitems";
 
-    public static final Item NetherGoldIngot = new Item(new Item.Settings().group(ItemGroup.MISC));
-    public static final Item NetherGoldNugget = new Item(new Item.Settings().group(ItemGroup.MISC));
-    public static final Item DiamondIngot = new DiamondIngotItem(new Item.Settings());
-    public static final Item NGoldPickaxe = new NetherGoldPickaxe(new ToolMaterialNethergold());
+
 
     //public static final Item NetherGoldHelmet = new ArmorItem(Armor.NetherGold, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT));
     //Tag
@@ -60,20 +53,6 @@ public class Main implements ModInitializer {
         //net.minecraft.item.Items
         //net.minecraft.item.ItemStack
 
-        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergold_ingot"), NetherGoldIngot);
-        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergold_nugget"), NetherGoldNugget);
-        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "diamond_ingot"), DiamondIngot);
-
-        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergolden_pickaxe"), NGoldPickaxe);
-        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergolden_axe"), new NetherGoldAxe(new ToolMaterialNethergold()));
-        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergolden_shovel"), new NetherGoldShovel(new ToolMaterialNethergold()));
-        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergolden_sword"), new NetherGoldSword(new ToolMaterialNethergold()));
-        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergolden_hoe"), new NetherGoldHoe(new ToolMaterialNethergold()));
-
-        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergolden_helmet"), new ArmorItem(Armor.NetherGold, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT)));
-        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergolden_chestplate"), new ArmorItem(Armor.NetherGold, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT)));
-        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergolden_leggings"), new ArmorItem(Armor.NetherGold, EquipmentSlot.LEGS, new Item.Settings().group(ItemGroup.COMBAT)));
-        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergolden_boots"), new ArmorItem(Armor.NetherGold, EquipmentSlot.FEET, new Item.Settings().group(ItemGroup.COMBAT)));
 
         Registry.register(Registry.BLOCK, new Identifier("somecoolextraitems", "nethergold_ore"), NetherGoldOre);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergold_ore"), new BlockItem(NetherGoldOre, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
