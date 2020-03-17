@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "nethergold_ingot",
+    "pattern": [
+      "###",
+      "###",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "somecoolextraitems:nethergold_ingot"
+      }
+    },
+    "result": {
+      "item": "somecoolextraitems:nethergold_block"
+    }
+  }

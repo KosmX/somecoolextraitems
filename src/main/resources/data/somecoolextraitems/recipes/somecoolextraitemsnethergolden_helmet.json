@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "sss",
+        "s s"
+    ],
+    "key": {
+        "s": {
+            "item": "somecoolextraitems:nethergold_ingot"
+        }
+    },
+    "result": {
+        "item": "somecoolextraitems:nethergolden_helmet",
+        "count": 1
+    }
+}

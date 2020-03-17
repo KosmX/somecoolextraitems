@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:blasting",
+    "ingredient": {
+      "item": "somecoolextraitems:nethergold_ore"
+    },
+    "result": "somecoolextraitems:nethergold_ingot",
+    "experience": 3.0,
+    "cookingtime": 100
+  }

@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+    "textures":{
+        "layer0": "somecoolextraitems:tools/ngolden_sword"
+    }
+}

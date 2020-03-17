@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "somecoolextraitems",
+  "version": "${version}",
+  "name": "Some cool extra items",
+  "description": "SomE cOOl eXtRa iTems!",
+  "authors": [
+    "KosmX",
+    "Macskusz111"
+  ],
+  "contributors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/somecoolextraitems/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.kosmx.somecoolextraitems.Main"
+    ],
+    "client": [
+      "com.kosmx.somecoolextraitems.Client"
+    ],
+    "server": []
+  },
+  "mixins": [
+  ],
+  "depends": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*"
+  }
+}
