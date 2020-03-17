@@ -24,6 +24,9 @@ public class AddItems {
     public static final Item NetherZombieEgg = new SpawnEggItem(AddEntities.NETHER_ZOMBIE, 0xffaa33, 0x3d0303, new Item.Settings().group(ItemGroup.MISC));
 
     public AddItems(){
+
+        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "lava_zombie_spawn_egg"), NetherZombieEgg);
+
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergold_ingot"), NetherGoldIngot);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergold_nugget"), NetherGoldNugget);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "diamond_ingot"), DiamondIngot);
