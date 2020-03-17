@@ -2,11 +2,13 @@ package com.kosmx.somecoolextraitems.items;
 
 import com.kosmx.somecoolextraitems.Materials.*;
 import com.kosmx.somecoolextraitems.tools.*;
+import com.kosmx.somecoolextraitems.entity.AddEntities;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -19,6 +21,7 @@ public class AddItems {
     public static final Item NGoldSword = new NetherGoldSword(new ToolMaterialNethergold());
     public static final Item NGoldHoe = new NetherGoldHoe(new ToolMaterialNethergold());
     public static final Item NGoldShovel = new NetherGoldShovel(new ToolMaterialNethergold());
+    public static final Item NetherZombieEgg = new SpawnEggItem(AddEntities.NETHER_ZOMBIE, 0xffaa33, 0x3d0303, new Item.Settings().group(ItemGroup.MISC));
 
     public AddItems(){
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergold_ingot"), NetherGoldIngot);

@@ -79,13 +79,13 @@ public class NetherZombieEntity extends ZombieEntity {
     super.initAttributes();
     this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
     this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
-    this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
+    this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
     this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(3.0D);
     this.getAttributes().register(SPAWN_REINFORCEMENTS).setBaseValue(this.random.nextDouble() * 0D);
   }
 
   protected void initEquipment(LocalDifficulty difficulty) {
-    this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(com.kosmx.somecoolextraitems.items.AddItems.NGoldSword));
+    this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(com.kosmx.somecoolextraitems.items.AddItems.NGoldAxe));
   }
 
   protected ItemStack getSkull() {

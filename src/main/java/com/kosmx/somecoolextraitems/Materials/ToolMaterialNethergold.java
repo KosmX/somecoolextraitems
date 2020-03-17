@@ -5,7 +5,7 @@ package com.kosmx.somecoolextraitems.Materials;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-import com.kosmx.somecoolextraitems.Main;
+import com.kosmx.somecoolextraitems.items.AddItems;
 
 //import org.apache.logging.log4j.Level;
 
@@ -40,7 +40,7 @@ public class ToolMaterialNethergold implements ToolMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Main.NetherGoldIngot);
+        return Ingredient.ofItems(AddItems.NetherGoldIngot);
     }
     
 }

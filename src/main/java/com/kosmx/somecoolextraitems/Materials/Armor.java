@@ -1,6 +1,6 @@
 package com.kosmx.somecoolextraitems.Materials;
 
-import com.kosmx.somecoolextraitems.Main;
+import com.kosmx.somecoolextraitems.items.AddItems;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
@@ -11,7 +11,7 @@ import net.minecraft.util.Lazy;
 import java.util.function.Supplier;
 
 public enum Armor implements ArmorMaterial {
-    NetherGold("nethergolden", 40, new int[]{4, 8, 10, 4}, 13, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 3f, () -> {return Ingredient.ofItems(Main.NetherGoldIngot);});
+    NetherGold("nethergolden", 40, new int[]{4, 8, 10, 4}, 13, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 3f, () -> {return Ingredient.ofItems(AddItems.NetherGoldIngot);});
 
     private static final int[] BASE_DURABILITY = new int[] {13, 15, 16, 11};
     private final String name;
