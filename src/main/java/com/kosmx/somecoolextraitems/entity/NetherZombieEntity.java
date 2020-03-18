@@ -23,8 +23,6 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
-
 import java.util.RandomAccess;
 
 import com.kosmx.somecoolextraitems.items.AddItems;
@@ -45,11 +43,6 @@ public class NetherZombieEntity extends ZombieEntity {
       this.damage(DamageSource.DROWN, 1.0F);
     }
     super.mobTick();
-  }
-
-  public boolean canSpawn(IWorld iWorld, SpawnType spawnType){
-    BlockPos pos = new BlockPos(this);
-    return iWorld.intersectsEntities(this) && !iWorld.intersectsEntities(this) && !iWorld.isAir(pos);
   }
 
   public boolean isOnFire() {
@@ -123,12 +116,15 @@ public class NetherZombieEntity extends ZombieEntity {
 
   public static boolean canSpawn(EntityType<NetherZombieEntity> type, IWorld world, SpawnType spawnType, BlockPos pos,
       RandomAccess random) {
-  return world.getDifficulty() != Difficulty.PEACEFUL;
+  return world.getDifficulty() != Difficulty.PEACEFUL && !world.isAir(pos.add(0, -1, 0));
 }
 
-public boolean canSpawn(WorldView world) {
-  return world.intersectsEntities(this) && !world.containsFluid(this.getBoundingBox());
-}
+
+
+  public boolean canSpawn(IWorld iWorld_1, SpawnType spawnType_1) {
+    BlockPos entityPos = new BlockPos(this.getX(), this.getY()-1, this.getZ());
+    return !iWorld_1.isAir(entityPos) && this.getPathfindingFavor(entityPos) >= 0.0F;
+  }
 
 
 }
