@@ -9,9 +9,11 @@ import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.ai.goal.ZombieAttackGoal;
+import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.ClampedEntityAttribute;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -25,6 +27,7 @@ import net.minecraft.world.WorldView;
 
 import java.util.RandomAccess;
 
+import com.kosmx.somecoolextraitems.items.AddItems;
 
 import net.minecraft.entity.Entity;
 
@@ -34,6 +37,14 @@ public class NetherZombieEntity extends ZombieEntity {
 
   public NetherZombieEntity(EntityType<? extends ZombieEntity> type, World world) {
     super(type, world);
+    this.setPathfindingPenalty(PathNodeType.LAVA, 8.0F);
+  }
+
+  protected void mobTick(){
+    if(isWet()){
+      this.damage(DamageSource.DROWN, 1.0F);
+    }
+    super.mobTick();
   }
 
   public boolean isOnFire() {
@@ -62,6 +73,10 @@ public class NetherZombieEntity extends ZombieEntity {
   public void onKilledOther(LivingEntity other) {
   }
 
+  protected boolean canConvertInWater() {
+    return false;
+ }
+
   protected void initGoals() {
     this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
     this.goalSelector.add(8, new LookAroundGoal(this));
@@ -79,13 +94,22 @@ public class NetherZombieEntity extends ZombieEntity {
     super.initAttributes();
     this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
     this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
-    this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
-    this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(3.0D);
-    this.getAttributes().register(SPAWN_REINFORCEMENTS).setBaseValue(this.random.nextDouble() * 0D);
+    this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
+    this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(2.0D);
+    this.getAttributes().register(SPAWN_REINFORCEMENTS).setBaseValue(this.random.nextDouble() * 0.1D);
   }
 
   protected void initEquipment(LocalDifficulty difficulty) {
-    this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(com.kosmx.somecoolextraitems.items.AddItems.NGoldAxe));
+    int i = this.random.nextInt(6);
+    if(i == 0){
+      this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(AddItems.NGoldAxe));
+    }
+    else if(i <=3){
+      this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(AddItems.NGoldSword));
+    }
+    if(i <= 3){
+      this.handDropChances[EquipmentSlot.MAINHAND.getEntitySlotId()] = 0.02f;
+    }
   }
 
   protected ItemStack getSkull() {
