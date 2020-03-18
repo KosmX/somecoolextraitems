@@ -47,6 +47,11 @@ public class NetherZombieEntity extends ZombieEntity {
     super.mobTick();
   }
 
+  public boolean canSpawn(IWorld iWorld, SpawnType spawnType){
+    BlockPos pos = new BlockPos(this);
+    return iWorld.intersectsEntities(this) && !iWorld.intersectsEntities(this) && !iWorld.isAir(pos);
+  }
+
   public boolean isOnFire() {
     return false;
   }
