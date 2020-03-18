@@ -6,6 +6,7 @@ import com.kosmx.somecoolextraitems.entity.AddEntities;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.SpawnEggItem;
@@ -22,6 +23,14 @@ public class AddItems {
     public static final Item NGoldHoe = new NetherGoldHoe(new ToolMaterialNethergold());
     public static final Item NGoldShovel = new NetherGoldShovel(new ToolMaterialNethergold());
     public static final Item NetherZombieEgg = new SpawnEggItem(AddEntities.NETHER_ZOMBIE, 0xffaa33, 0x3d0303, new Item.Settings().group(ItemGroup.MISC));
+    //net.minecraft.item.Items
+    //foods
+
+    //todo BPS cup easter egg
+
+    public static final Item Nutella = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(6).alwaysEdible().build()).group(ItemGroup.FOOD));
+    public static final Item BreadWithNutella = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(6).snack().build()).group(ItemGroup.FOOD));
+    public static final Item BreadWithHoney = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(6).snack().build()).group(ItemGroup.FOOD));
 
     public AddItems(){
 
@@ -36,6 +45,10 @@ public class AddItems {
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergolden_shovel"), NGoldShovel);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergolden_sword"), NGoldSword);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergolden_hoe"), NGoldHoe);
+
+        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nutella"), Nutella);
+        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "honey_bread"), BreadWithHoney);
+        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nutella_bread"), BreadWithNutella);
 
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergolden_helmet"), new ArmorItem(Armor.NetherGold, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT)));
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergolden_chestplate"), new ArmorItem(Armor.NetherGold, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT)));

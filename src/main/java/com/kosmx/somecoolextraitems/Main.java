@@ -38,7 +38,6 @@ public class Main implements ModInitializer {
     public static final String MOD_NAME = "somecoolextraitems";
 
 
-
     //public static final Item NetherGoldHelmet = new ArmorItem(Armor.NetherGold, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT));
     //Tag
 
