@@ -25,9 +25,9 @@ public class AddBlocks {
 
 
 
-
     public AddBlocks(){
-        
+        //net.minecraft.block.Blocks
+
         Registry.register(Registry.BLOCK, new Identifier("somecoolextraitems", "nethergold_ore"), NetherGoldOre);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergold_ore"), new BlockItem(NetherGoldOre, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
         Registry.register(Registry.BLOCK, new Identifier("somecoolextraitems", "nethergold_block"), NetherGoldBlock);

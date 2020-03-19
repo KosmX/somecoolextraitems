@@ -1,5 +1,5 @@
 {
-	"parent": "somecoolextraitems:item/mug_tee",
+	"parent": "somecoolextraitems:item/mug_tea",
 	"textures":{
 		"0": "somecoolextraitems:items/mug/black",
 		"1": "somecoolextraitems:items/mug/starwars"
