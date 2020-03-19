@@ -31,8 +31,13 @@ public class AddItems {
     public static final Item Nutella = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(6).alwaysEdible().build()).group(ItemGroup.FOOD));
     public static final Item BreadWithNutella = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(6).snack().build()).group(ItemGroup.FOOD));
     public static final Item BreadWithHoney = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(6).snack().build()).group(ItemGroup.FOOD));
+    public static final Item BPSMug = new Item(new Item.Settings());
+    public static final Item BPSMugTee = new MugItem(BPSMug, ItemGroup.FOOD);
+
 
     public AddItems(){
+        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "mug_bps"), BPSMug);
+        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "mug_tee_bps"), BPSMugTee);
 
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "lava_zombie_spawn_egg"), NetherZombieEgg);
 

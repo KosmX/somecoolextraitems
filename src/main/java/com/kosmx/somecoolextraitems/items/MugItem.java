@@ -4,9 +4,10 @@ import net.minecraft.advancement.criterion.Criterions;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -17,8 +18,10 @@ import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 //TODO finish
 public class MugItem extends Item {
-   public MugItem(Item.Settings settings) {
-      super(settings);
+   private Item returnItem;
+   public MugItem(Item returnItem, ItemGroup itemGroup) {
+      super(new Item.Settings().food(new FoodComponent.Builder().hunger(2).alwaysEdible().saturationModifier(2).build()).group(itemGroup));
+      this.returnItem = returnItem;
    }
 
    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
@@ -30,14 +33,14 @@ public class MugItem extends Item {
       }
 
       if (!world.isClient) {
-         user.removeStatusEffect(StatusEffects.POISON);
+         user.removeStatusEffect(StatusEffects.NAUSEA);
       }
 
       if (stack.isEmpty()) {
-         return new ItemStack(Items.GLASS_BOTTLE);
+         return new ItemStack(this.returnItem);
       } else {
          if (user instanceof PlayerEntity && !((PlayerEntity)user).abilities.creativeMode) {
-            ItemStack itemStack = new ItemStack(Items.GLASS_BOTTLE);
+            ItemStack itemStack = new ItemStack(returnItem);
             PlayerEntity playerEntity = (PlayerEntity)user;
             if (!playerEntity.inventory.insertStack(itemStack)) {
                playerEntity.dropItem(itemStack, false);
@@ -57,11 +60,11 @@ public class MugItem extends Item {
    }
 
    public SoundEvent getDrinkSound() {
-      return SoundEvents.ITEM_HONEY_BOTTLE_DRINK;
+      return SoundEvents.ENTITY_GENERIC_DRINK;
    }
 
    public SoundEvent getEatSound() {
-      return SoundEvents.ITEM_HONEY_BOTTLE_DRINK;
+      return SoundEvents.ENTITY_GENERIC_DRINK;
    }
 
    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
