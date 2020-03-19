@@ -37,6 +37,7 @@ public class AddItems {
     public static final Item MugTea = new MugItem(Mug, ItemGroup.FOOD);
     public static final Item StarwarsMug = new Item(new Item.Settings());
     public static final Item StarwarsMugTea = new MugItem(StarwarsMug);
+    public static final Item Nut = new Item(new Item.Settings().group(ItemGroup.FOOD));
 
 
     public AddItems(){
@@ -48,6 +49,8 @@ public class AddItems {
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "mug_tea_starwars"), StarwarsMugTea);
 
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "lava_zombie_spawn_egg"), NetherZombieEgg);
+
+        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nut"), Nut);
 
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergold_ingot"), NetherGoldIngot);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergold_nugget"), NetherGoldNugget);
