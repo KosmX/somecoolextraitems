@@ -35,6 +35,8 @@ public class AddItems {
     public static final Item Mug = new Item(new Item.Settings().group(ItemGroup.FOOD));
     public static final Item BPSMugTee = new MugItem(BPSMug);
     public static final Item MugTee = new MugItem(Mug, ItemGroup.FOOD);
+    public static final Item StarwarsMug = new Item(new Item.Settings());
+    public static final Item StarwarsMugTee = new MugItem(StarwarsMug);
 
 
     public AddItems(){
@@ -42,6 +44,8 @@ public class AddItems {
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "mug_tee_bps"), BPSMugTee);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "mug"), Mug);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "mug_tee"), MugTee);
+        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "mug_starwars"), StarwarsMug);
+        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "mug_tee_starwars"), StarwarsMugTee);
 
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "lava_zombie_spawn_egg"), NetherZombieEgg);
 
