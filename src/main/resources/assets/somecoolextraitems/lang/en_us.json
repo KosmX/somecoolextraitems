@@ -19,6 +19,9 @@
     "item.somecoolextraitems.nutella": "Nutella®",
     "item.somecoolextraitems.honey_bread": "Honey bread",
     "item.somecoolextraitems.nutella_bread": "Nutella® bread",
-    "item.somecoolextraitems.mug_BPS": "Black Plasma Studios Mug"
+    "item.somecoolextraitems.mug_bps": "Black Plasma Studios Mug",
+    "item.somecoolextraitems.mug_tee_bps": "Tee in Black Plasma Studios Mug",
+    "item.somecoolextraitems.mug": "Mug",
+    "item.somecoolextraitems.mug_tee": "Tee"
 
 }

@@ -16,11 +16,15 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
-//TODO finish
 public class MugItem extends Item {
    private Item returnItem;
    public MugItem(Item returnItem, ItemGroup itemGroup) {
       super(new Item.Settings().food(new FoodComponent.Builder().hunger(2).alwaysEdible().saturationModifier(2).build()).group(itemGroup));
+      this.returnItem = returnItem;
+   }
+
+   public MugItem(Item returnItem){
+      super(new Item.Settings().food(new FoodComponent.Builder().hunger(2).alwaysEdible().saturationModifier(2).build()));
       this.returnItem = returnItem;
    }
 
