@@ -2,14 +2,14 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "somecoolextraitems:nutella"
+      "item": "somecoolextraitems:nutolla"
     },
     {
       "item": "minecraft:bread"
     }
   ],
   "result": {
-    "item": "somecoolextraitems:nutella_bread",
+    "item": "somecoolextraitems:nutolla_bread",
     "count": 4
   }
 }

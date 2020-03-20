@@ -19,6 +19,7 @@ public class NetherZombieRenderer extends MobEntityRenderer<NetherZombieEntity, 
         this.addFeature(new HeldItemFeatureRenderer<>(this));
         this.addFeature(new ArmorBipedFeatureRenderer<>(this,  new ZombieEntityModel<>(0.5F, true), new ZombieEntityModel<>(1.0F, true)));
     }
+    //net.minecraft.client.render.entity.PlayerEntityRenderer
 
     @Override
     public Identifier getTexture(NetherZombieEntity entity) {

@@ -16,14 +16,15 @@
     "item.somecoolextraitems.nethergolden_boots": "Nethergolden Boots",
     "item.somecoolextraitems.lava_zombie_spawn_egg": "Lava Zombie Spawn Egg",
     "entity.somecoolextraitems.lava_zombie": "Lava Zombie",
-    "item.somecoolextraitems.nutella": "Nutella®",
+    "item.somecoolextraitems.nutolla": "Nutolla",
     "item.somecoolextraitems.honey_bread": "Honey bread",
-    "item.somecoolextraitems.nutella_bread": "Nutella® bread",
+    "item.somecoolextraitems.nutolla_bread": "Nutolla bread",
     "item.somecoolextraitems.mug_bps": "Black Plasma Studios Mug",
     "item.somecoolextraitems.mug_tea_bps": "Tea in Black Plasma Studios Mug",
     "item.somecoolextraitems.mug": "Mug",
     "item.somecoolextraitems.mug_tea": "Tea",
     "item.somecoolextraitems.mug_starwars": "StarWars Mug",
     "item.somecoolextraitems.mug_tea_starwars": "Tea in StarWars Mug",
-    "item.somecoolextraitems.nut": "Hazelnut"
+    "item.somecoolextraitems.nut": "Hazelnut",
+    "item.somecoolextraitems.derp_fish": "Fish"
 }
