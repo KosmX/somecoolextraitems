@@ -11,7 +11,7 @@
   "contributors": [],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/somecoolextraitems/icon.png",
+  "icon": "assets/somecoolextraitems/textures/items/diamond_ingot.png",
   "environment": "*",
   "entrypoints": {
     "main": [

@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "pizza_bites=0": { "model": "somecoolextraitems:blocks/pizza/1" },
+        "pizza_bites=1": { "model": "somecoolextraitems:blocks/pizza/2" },
+        "pizza_bites=2": { "model": "somecoolextraitems:blocks/pizza/3" },
+        "pizza_bites=3": { "model": "somecoolextraitems:blocks/pizza/4" },
+        "pizza_bites=4": { "model": "somecoolextraitems:blocks/pizza/5" },
+        "pizza_bites=5": { "model": "somecoolextraitems:blocks/pizza/6" },
+        "pizza_bites=6": { "model": "somecoolextraitems:blocks/pizza/7" },
+		"pizza_bites=7": { "model": "somecoolextraitems:blocks/pizza/8" }
+    }
+}

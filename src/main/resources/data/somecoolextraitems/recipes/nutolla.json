@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "SCS",
+        " G "
+    ],
+    "key": {
+        "#": {
+            "item": "somecoolextraitems:nut"
+        },
+        "S": {
+            "item": "minecraft:sugar"
+        },
+        "C": {
+            "item": "minecraft:cocoa_beans"
+        },
+        "G": {
+            "item": "minecraft:glass_bottle"
+        }
+    },
+    "result": {
+        "item": "somecoolextraitems:nutolla",
+        "count": 1
+    }
+}

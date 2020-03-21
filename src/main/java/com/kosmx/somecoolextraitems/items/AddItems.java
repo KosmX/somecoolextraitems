@@ -27,7 +27,7 @@ public class AddItems {
     //net.minecraft.item.Items
     //foods
 
-    //todo BPS cup easter egg
+    //TODO peach ... virsli
 
     public static final Item Nutella = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(6).alwaysEdible().build()).group(ItemGroup.FOOD));
     public static final Item BreadWithNutella = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(6).snack().build()).group(ItemGroup.FOOD));

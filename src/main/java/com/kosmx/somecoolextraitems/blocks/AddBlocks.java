@@ -9,6 +9,7 @@ import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
@@ -22,6 +23,7 @@ public class AddBlocks {
     public static final Block NetherGoldOre = new Block(FabricBlockSettings.of(Material.STONE).breakByHand(false).breakByTool(toolTags.PICKAXES, 2).strength(3, 0.4f).build());
     public static final Block NetherGoldBlock = new Block(FabricBlockSettings.of(Material.METAL).breakByHand(false).breakByTool(toolTags.PICKAXES, 2).strength(3, 0.4f).build());
 
+    public static final Block Pizza = new PizzaBlock(FabricBlockSettings.of(Material.CAKE).strength(0.5f, 0f).sounds(BlockSoundGroup.WOOL).nonOpaque().build());
 
 
 
@@ -33,6 +35,8 @@ public class AddBlocks {
         Registry.register(Registry.BLOCK, new Identifier("somecoolextraitems", "nethergold_block"), NetherGoldBlock);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergold_block"), new BlockItem(NetherGoldBlock, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
 
+        Registry.register(Registry.BLOCK, new Identifier("somecoolextraitems", "pizza"), Pizza);
+        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "pizza"), new BlockItem(Pizza, new Item.Settings().maxCount(1).group(ItemGroup.FOOD)));
         
         Registry.BIOME.forEach(this::netherGoldGeneration);
         RegistryEntryAddedCallback.event(Registry.BIOME).register((i, dentifier, biome) -> netherGoldGeneration(biome));
