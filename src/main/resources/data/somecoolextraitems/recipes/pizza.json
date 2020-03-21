@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "# #",
+        "BMB",
+        "WWW"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:porkchop"
+        },
+        "B": {
+            "item": "minecraft:brown_mushroom"
+        },
+        "M": {
+            "item": "minecraft:milk_bucket"
+        },
+        "W": {
+            "item": "minecraft:wheat"
+        }
+    },
+    "result": {
+        "item": "somecoolextraitems:pizza",
+        "count": 1
+    }
+}
