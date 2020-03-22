@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "somecoolextraitems:blocks/pillow",
-		"particle": "somecoolextraitems:blocks/pillow"
+		"0": "somecoolextraitems:blocks/pillow/pillow_white",
+		"particle": "item/feather"
 	},
 	"elements": [
 		{
