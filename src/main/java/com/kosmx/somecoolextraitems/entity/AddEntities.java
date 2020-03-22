@@ -1,6 +1,5 @@
 package com.kosmx.somecoolextraitems.entity;
 
-import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityDimensions;
@@ -33,7 +32,5 @@ public class AddEntities {
 
     }
 
-    public static void addClient(){
-        EntityRendererRegistry.INSTANCE.register(NETHER_ZOMBIE, (entityRenderDispatcher, contex) -> new NetherZombieRenderer(entityRenderDispatcher));
-    }
+
 }

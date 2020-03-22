@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures":{
+        "all": "somecoolextraitems:blocks/sugar_cube"
+    }
+}
