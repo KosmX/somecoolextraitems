@@ -27,5 +27,7 @@
     "item.somecoolextraitems.mug_tea_starwars": "Tea in StarWars Mug",
     "item.somecoolextraitems.nut": "Hazelnut",
     "item.somecoolextraitems.derp_fish": "Fish",
-    "block.somecoolextraitems.pizza": "Pizza"
+    "block.somecoolextraitems.pizza": "Pizza",
+    "block.somecoolextraitems.sugar_cube": "Sugar Cube",
+    "block.somecoolextraitems.feather_block": "Feather Block"
 }

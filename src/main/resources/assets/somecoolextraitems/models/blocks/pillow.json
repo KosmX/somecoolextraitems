@@ -1,0 +1,34 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "somecoolextraitems:blocks/pillow",
+		"particle": "somecoolextraitems:blocks/pillow"
+	},
+	"elements": [
+		{
+			"from": [1, 0, 1],
+			"to": [15, 8, 15],
+			"faces": {
+				"north": {"uv": [8.5, 0, 15.5, 4], "texture": "#0"},
+				"east": {"uv": [8.5, 0, 15.5, 4], "texture": "#0"},
+				"south": {"uv": [8.5, 0, 15.5, 4], "texture": "#0"},
+				"west": {"uv": [8.5, 0, 15.5, 4], "texture": "#0"},
+				"up": {"uv": [0.5, 0.5, 7.5, 7.5], "texture": "#0"},
+				"down": {"uv": [0.5, 0.5, 7.5, 7.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [0, 1, 0],
+			"to": [16, 7, 16],
+			"faces": {
+				"north": {"uv": [8, 0.5, 16, 3.5], "texture": "#0"},
+				"east": {"uv": [8, 0.5, 16, 3.5], "texture": "#0"},
+				"south": {"uv": [8, 0.5, 16, 3.5], "texture": "#0"},
+				"west": {"uv": [8, 0.5, 16, 3.5], "texture": "#0"},
+				"up": {"uv": [0, 0, 8, 8], "texture": "#0"},
+				"down": {"uv": [0, 0, 8, 8], "texture": "#0"}
+			}
+		}
+	]
+}
