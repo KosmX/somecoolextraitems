@@ -1,0 +1,6 @@
+{
+    "parent": "somecoolextraitems:blocks/pillow/pillow",
+    "textures":{
+        "0": "somecoolextraitems:blocks/pillow/red"
+    }
+}

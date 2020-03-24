@@ -2,6 +2,8 @@ package com.kosmx.somecoolextraitems.items;
 
 import net.minecraft.advancement.criterion.Criterions;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -27,7 +29,9 @@ public class CocoaBucketItem extends Item {
          Criterions.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
          serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
       }
-
+      if(!world.isClient){
+         user.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 20, 2));
+      }
       if (stack.isEmpty()) {
          return new ItemStack(Items.BUCKET);
       } else {

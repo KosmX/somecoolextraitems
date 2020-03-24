@@ -4,8 +4,6 @@
     "block.somecoolextraitems.nethergold_ore": "Nethergold Ore",
     "block.somecoolextraitems.nethergold_block": "Nethergold Block",
     "item.somecoolextraitems.nethergolden_axe": "Nethergolden Axe",
-    "item.somecoolextraitems.diamond_ingot": "Diamond Ingot",
-    "diamond_ingot_text": "§bJust a shiny Easter Egg",
     "item.somecoolextraitems.nethergolden_pickaxe": "Nethergolden Pickaxe",
     "item.somecoolextraitems.nethergolden_sword": "Nethergolden Sword",
     "item.somecoolextraitems.nethergolden_hoe": "Nethergolden Hoe",
@@ -26,8 +24,10 @@
     "item.somecoolextraitems.mug_starwars": "StarWars Mug",
     "item.somecoolextraitems.mug_tea_starwars": "Tea in StarWars Mug",
     "item.somecoolextraitems.nut": "Hazelnut",
-    "item.somecoolextraitems.derp_fish": "Fish",
     "block.somecoolextraitems.pizza": "Pizza",
     "block.somecoolextraitems.sugar_cube": "Sugar Cube",
-    "block.somecoolextraitems.pillow_white": "White Pillow"
+    "block.somecoolextraitems.pillow_white": "White Pillow",
+    "block.somecoolextraitems.pillow_red": "TNT Pillow",
+    "block.somecoolextraitems.pillow_blue": "BPS Pillow",
+    "block.somecoolextraitems.pillow_green": "Creeper Pillow"
 }
