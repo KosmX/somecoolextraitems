@@ -1,12 +1,8 @@
 package com.kosmx.somecoolextraitems.entity;
 
 import java.util.EnumSet;
-import java.util.Optional;
-import java.util.Random;
 import java.util.UUID;
-import java.util.function.Predicate;
 import javax.annotation.Nullable;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
@@ -36,22 +32,13 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.NbtHelper;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.FluidTags;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.GameRules;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.RayTraceContext;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
 
 public class GhostEntity extends HostileEntity {
    private static final UUID ATTACKING_SPEED_BOOST_UUID = UUID.fromString("020E0DFB-87AE-4653-9556-831010E291A0");
@@ -183,7 +170,7 @@ public class GhostEntity extends HostileEntity {
          double d = this.getX() + (this.random.nextDouble() - 0.5D) * 64.0D;
          double e = this.getY() + (double)(this.random.nextInt(64) - 32);
          double f = this.getZ() + (this.random.nextDouble() - 0.5D) * 64.0D;
-         return this.teleport(d, e, f);
+         return this.teleport(d, e, f, 0);
       } else {
          return false;
       }
@@ -195,10 +182,10 @@ public class GhostEntity extends HostileEntity {
       double e = this.getX() + (this.random.nextDouble() - 0.5D) * 8.0D - vec3d.x * 16.0D;
       double f = this.getY() + (double)(this.random.nextInt(16) - 8) - vec3d.y * 16.0D;
       double g = this.getZ() + (this.random.nextDouble() - 0.5D) * 8.0D - vec3d.z * 16.0D;
-      return this.teleport(e, f, g);
+      return this.teleport(e, f, g, 0);
    }
 
-   private boolean teleport(double x, double y, double z) {
+   private boolean teleport(double x, double y, double z, int i) {
       BlockPos.Mutable mutable = new BlockPos.Mutable(x, y, z);
 
       while(mutable.getY() > 0 && !this.world.getBlockState(mutable).getMaterial().blocksMovement()) {
@@ -209,7 +196,7 @@ public class GhostEntity extends HostileEntity {
       boolean bl = blockState.getMaterial().blocksMovement();
       boolean bl2 = blockState.getFluidState().matches(FluidTags.WATER);
       if (bl && !bl2) {
-         boolean bl3 = this.teleport(x, y, z, true);
+         boolean bl3 = this.teleport(x, y, z, false);
          if (bl3) {
             this.world.playSound((PlayerEntity)null, this.prevX, this.prevY, this.prevZ, SoundEvents.ENTITY_ENDERMAN_TELEPORT, this.getSoundCategory(), 1.0F, 1.0F);
             this.playSound(SoundEvents.ENTITY_ENDERMAN_TELEPORT, 1.0F, 1.0F);
