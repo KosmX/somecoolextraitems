@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:sugar"
+        }
+    },
+    "result": {
+        "item": "somecoolextraitems:sugar_cube",
+        "count": 1
+    }
+}

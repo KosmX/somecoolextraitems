@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      {
+        "item": "somecoolextraitems:sugar_cube"
+      }
+    ],
+    "result": {
+      "item": "minecraft:sugar",
+      "count": 9
+    }
+  }
