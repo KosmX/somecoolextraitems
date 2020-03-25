@@ -3,7 +3,7 @@
 	"textures": {
 		"0": "somecoolextraitems:items/mug/base",
 		"1": "somecoolextraitems:items/mug/base",
-		"particle": "somecoolextraitems:items/mug/tee"
+		"particle": "somecoolextraitems:items/mug/tea"
 	},
 	"elements": [
 		{

@@ -43,6 +43,7 @@ public class AddItems {
     public static final Item StarwarsMug = new Item(new Item.Settings());
     public static final Item StarwarsMugTea = new MugItem(StarwarsMug);
     public static final Item Nut = new Item(new Item.Settings().group(ItemGroup.FOOD));
+    public static final Item Frankfurter = new Item( new Item.Settings().food(new FoodComponent.Builder().hunger(4).saturationModifier(2).snack().build()).group(ItemGroup.FOOD));
     //public static final Item CocoaBucket = new CocoaBucketItem(new Item.Settings().food(new FoodComponent.Builder().hunger(1).alwaysEdible().saturationModifier(0).snack().build()).recipeRemainder(Items.BUCKET).group(ItemGroup.FOOD));
 
     public AddItems(){
@@ -57,6 +58,7 @@ public class AddItems {
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "lava_zombie_spawn_egg"), NetherZombieEgg);
 
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nut"), Nut);
+        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "frankfurter"), Frankfurter);
 
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergold_ingot"), NetherGoldIngot);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergold_nugget"), NetherGoldNugget);
