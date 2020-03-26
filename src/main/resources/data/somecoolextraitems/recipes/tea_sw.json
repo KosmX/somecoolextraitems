@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "somecoolextraitems:mug_starwars"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "somecoolextraitems:tea_filter"
+    }
+  ],
+  "result": {
+    "item": "somecoolextraitems:mug_tea_starwars",
+    "count": 1
+  }
+}

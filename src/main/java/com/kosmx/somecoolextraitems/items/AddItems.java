@@ -24,13 +24,15 @@ public class AddItems {
     public static final Item NGoldHoe = new NetherGoldHoe(new ToolMaterialNethergold());
     public static final Item NGoldShovel = new NetherGoldShovel(new ToolMaterialNethergold());
     public static final Item NetherZombieEgg = new SpawnEggItem(AddEntities.NETHER_ZOMBIE, 0xffaa33, 0x3d0303, new Item.Settings().group(ItemGroup.MISC));
+    public static final Item StoneGolemEgg = new SpawnEggItem(AddEntities.STONE_ZOMBIE, 0xb3b3b3, 0x8a8a8a, new Item.Settings().group(ItemGroup.MISC));
     //public static final Item DerpFish = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.1F).build()));
     //net.minecraft.item.Items
     //foods
     //net.minecraft.recipe.CraftingRecipe
 
     //TODO cocoa_bucket ... virsli ghost
-    //pillow model in hand(copy normal block)
+    //teafilter
+    //mug loot in chests
     //pillow(every color)
 
     public static final Item Nutella = new NutellaItem(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(6).alwaysEdible().build()).recipeRemainder(Items.GLASS_BOTTLE).group(ItemGroup.FOOD));
@@ -44,6 +46,7 @@ public class AddItems {
     public static final Item StarwarsMugTea = new MugItem(StarwarsMug);
     public static final Item Nut = new Item(new Item.Settings().group(ItemGroup.FOOD));
     public static final Item Frankfurter = new Item( new Item.Settings().food(new FoodComponent.Builder().hunger(4).saturationModifier(2).snack().build()).group(ItemGroup.FOOD));
+    public static final Item TeaFilter = new Item(new Item.Settings().group(ItemGroup.MISC));
     //public static final Item CocoaBucket = new CocoaBucketItem(new Item.Settings().food(new FoodComponent.Builder().hunger(1).alwaysEdible().saturationModifier(0).snack().build()).recipeRemainder(Items.BUCKET).group(ItemGroup.FOOD));
 
     public AddItems(){
@@ -52,10 +55,12 @@ public class AddItems {
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "mug"), Mug);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "mug_tea"), MugTea);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "mug_starwars"), StarwarsMug);
+        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "tea_filter"), TeaFilter);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "mug_tea_starwars"), StarwarsMugTea);
         //Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "cocoa_bucket"), CocoaBucket);
 
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "lava_zombie_spawn_egg"), NetherZombieEgg);
+        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "stone_golem_spawn_egg"), StoneGolemEgg);
 
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nut"), Nut);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "frankfurter"), Frankfurter);

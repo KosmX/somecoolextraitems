@@ -13,7 +13,9 @@
     "item.somecoolextraitems.nethergolden_leggings": "Nethergolden Leggings",
     "item.somecoolextraitems.nethergolden_boots": "Nethergolden Boots",
     "item.somecoolextraitems.lava_zombie_spawn_egg": "Lava Zombie Spawn Egg",
+    "item.somecoolextraitems.stone_golem_spawn_egg": "Stone Golem Spawn Egg",
     "entity.somecoolextraitems.lava_zombie": "Lava Zombie",
+    "entity.somecoolextraitems.stone_golem": "Stone Golem",
     "item.somecoolextraitems.nutolla": "Nutolla",
     "item.somecoolextraitems.honey_bread": "Honey bread",
     "item.somecoolextraitems.nutolla_bread": "Nutolla bread",
@@ -30,5 +32,6 @@
     "block.somecoolextraitems.pillow_red": "TNT Pillow",
     "block.somecoolextraitems.pillow_blue": "BPS Pillow",
     "block.somecoolextraitems.pillow_green": "Creeper Pillow",
-    "item.somecoolextraitems.frankfurter": "Frankfurter"
+    "item.somecoolextraitems.frankfurter": "Frankfurter",
+    "item.somecoolextraitems.tea_filter": "Tea Filter"
 }
