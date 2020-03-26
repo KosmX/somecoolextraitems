@@ -1,7 +1,6 @@
 package com.kosmx.somecoolextraitems;
 
 import net.fabricmc.api.ModInitializer;
-
 //import net.fabricmc.fabric.api.block.FabricBlockSettings;
 
 
@@ -26,8 +25,6 @@ public class Main implements ModInitializer {
     //public static final Item NetherGoldHelmet = new ArmorItem(Armor.NetherGold, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT));
     //Tag
 
-
-    
     
     //net.minecraft.potion.Potions
 
@@ -42,9 +39,12 @@ public class Main implements ModInitializer {
         new AddBlocks();
         new AddEntities();
         new AddItems();
+        new LootManager();
     }
 
     public static void log(Level level, String message) {
         LOGGER.log(level, "["+MOD_NAME+"] " + message);
     }
+
+    
 }

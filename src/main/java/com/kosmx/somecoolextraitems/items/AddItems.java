@@ -30,10 +30,9 @@ public class AddItems {
     //foods
     //net.minecraft.recipe.CraftingRecipe
 
-    //TODO cocoa_bucket ... virsli ghost
-    //teafilter
-    //mug loot in chests
-    //pillow(every color)
+    //TODO cocoa_bucket ...ghost
+    //Sounds
+    //loot-stone golem
 
     public static final Item Nutella = new NutellaItem(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(6).alwaysEdible().build()).recipeRemainder(Items.GLASS_BOTTLE).group(ItemGroup.FOOD));
     public static final Item BreadWithNutella = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(6).snack().build()).group(ItemGroup.FOOD));
