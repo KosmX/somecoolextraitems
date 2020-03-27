@@ -23,7 +23,7 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 public class AddBlocks {
     public static final Block NetherGoldOre = new Block(FabricBlockSettings.of(Material.STONE).breakByHand(false).breakByTool(toolTags.PICKAXES, 2).strength(3, 0.4f).build());
     public static final Block NetherGoldBlock = new Block(FabricBlockSettings.of(Material.METAL).breakByHand(false).breakByTool(toolTags.PICKAXES, 2).strength(3, 0.4f).build());
-    public static final Block SugarBlock = new Block(FabricBlockSettings.of(Material.ORGANIC).strength(0.5f, 0.1f).build());
+    public static final Block SugarBlock = new Block(FabricBlockSettings.of(Material.ORGANIC).strength(0.5f, 0.1f).sounds(BlockSoundGroup.SAND).build());
 
 
     public static final Block Pizza = new PizzaBlock(FabricBlockSettings.of(Material.CAKE).strength(0.5f, 0f).sounds(BlockSoundGroup.WOOL).nonOpaque().build());
@@ -68,7 +68,7 @@ public class AddBlocks {
     }
 
     private void AddPillow(String name, DyeColor color){
-        Block pillow = new FeatherBlock(FabricBlockSettings.of(Material.WOOL).materialColor(color).strength(0.5f, 0f).nonOpaque().build());
+        Block pillow = new FeatherBlock(FabricBlockSettings.of(Material.WOOL).materialColor(color).strength(0.5f, 0f).sounds(BlockSoundGroup.WOOL).nonOpaque().build());
         Registry.register(Registry.BLOCK, new Identifier("somecoolextraitems", name), pillow);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", name), new BlockItem(pillow, new Item.Settings().group(ItemGroup.DECORATIONS)));
     }

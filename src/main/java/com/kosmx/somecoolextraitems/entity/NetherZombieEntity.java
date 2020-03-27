@@ -18,6 +18,8 @@ import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.IWorld;
@@ -125,6 +127,21 @@ public class NetherZombieEntity extends ZombieEntity {
   public boolean canSpawn(IWorld iWorld_1, SpawnType spawnType_1) {
     BlockPos entityPos = new BlockPos(this.getX(), this.getY()-1, this.getZ());
     return !iWorld_1.isAir(entityPos) && this.getPathfindingFavor(entityPos) >= 0.0F;
+  }
+  protected SoundEvent getAmbientSound() {
+     return SoundEvents.BLOCK_STONE_PLACE;
+  }
+
+  protected SoundEvent getHurtSound(DamageSource source) {
+     return SoundEvents.BLOCK_STONE_BREAK;
+  }
+
+  protected SoundEvent getDeathSound() {
+     return SoundEvents.BLOCK_STONE_BREAK;
+  }
+
+  protected SoundEvent getStepSound() {
+     return SoundEvents.BLOCK_STONE_STEP;
   }
 
 
