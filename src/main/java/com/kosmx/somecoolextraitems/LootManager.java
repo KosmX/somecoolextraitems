@@ -5,7 +5,8 @@ import com.kosmx.somecoolextraitems.items.AddItems;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.item.Item;
-import net.minecraft.loot.ConstantLootTableRange;
+import net.minecraft.loot.BinomialLootTableRange;
+import net.minecraft.loot.LootTableRange;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.Identifier;
 
@@ -26,12 +27,12 @@ public class LootManager{
     }
 
 
-    private void AddLoot(String lootTable, Item item, int probability){
+    private void AddLoot(String lootTable, Item item, LootTableRange table){
         Identifier identifier = new Identifier("minecraft", lootTable);
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
             if (identifier.equals(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                .withRolls(ConstantLootTableRange.create(probability))
+                .withRolls(table)
                 .withEntry(ItemEntry.builder(item));
                 supplier.withPool(poolBuilder);
             }
@@ -39,8 +40,8 @@ public class LootManager{
     }
 
     private void AddMugs(String lootTable, int chance){
-        AddLoot(lootTable, AddItems.BPSMug, chance);
-        AddLoot(lootTable, AddItems.StarwarsMug, chance);
-        AddLoot(lootTable, AddItems.Mug, chance);
+        AddLoot(lootTable, AddItems.BPSMug, BinomialLootTableRange.create(4, 0.06f));
+        AddLoot(lootTable, AddItems.StarwarsMug, BinomialLootTableRange.create(4, 0.06f));
+        AddLoot(lootTable, AddItems.Mug, BinomialLootTableRange.create(4, 0.06f));
     }
 }
