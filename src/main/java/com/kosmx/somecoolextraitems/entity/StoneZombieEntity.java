@@ -51,7 +51,7 @@ public class StoneZombieEntity extends ZombieEntity {
       if(player.getStackInHand(Hand.MAIN_HAND).getItem() instanceof PickaxeItem){
         //((PickaxeItem)player.getStackInHand(Hand.MAIN_HAND).getItem()).getMiningSpeed(player.getStackInHand(Hand.MAIN_HAND), new BlockState());
         //Main.log(Level.INFO, "uses pickaxe");
-        amount = amount * 25f;
+        amount = amount * 3f;
       }
     }
     return super.damage(source, amount);
@@ -85,7 +85,7 @@ public class StoneZombieEntity extends ZombieEntity {
     this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
     this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
     this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(2.0D);
-    this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(25.0D);
+    this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(35.0D);
     this.getAttributes().register(SPAWN_REINFORCEMENTS).setBaseValue(this.random.nextDouble() * 0.1D);
   }
 
@@ -98,14 +98,14 @@ public class StoneZombieEntity extends ZombieEntity {
 
   public static boolean canSpawn(EntityType<NetherZombieEntity> type, IWorld world, SpawnType spawnType, BlockPos pos,
       RandomAccess random) {
-  return world.getDifficulty() != Difficulty.PEACEFUL && !world.isAir(pos.add(0, -1, 0));
+  return world.getDifficulty() != Difficulty.PEACEFUL && !world.isAir(pos.add(0, -1, 0)) && pos.getY() < 50;
 }
 
 
 
   public boolean canSpawn(IWorld iWorld_1, SpawnType spawnType_1) {
     BlockPos entityPos = new BlockPos(this.getX(), this.getY()-1, this.getZ());
-    return !iWorld_1.isAir(entityPos) && this.getPathfindingFavor(entityPos) >= 0.0F;
+    return !iWorld_1.isAir(entityPos) && this.getPathfindingFavor(entityPos) >= 0.0F && entityPos.getY() < 50;
   }
 
   protected SoundEvent getAmbientSound() {

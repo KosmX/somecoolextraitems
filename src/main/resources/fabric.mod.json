@@ -3,15 +3,16 @@
   "id": "somecoolextraitems",
   "version": "${version}",
   "name": "Some cool extra items",
-  "description": "SomE cOOl eXtRa iTems!",
+  "description": "SomE cOOl eXtRa iTems! Graphics by Macskusz111 Programming KosmX",
   "authors": [
+    "G.Team",
     "KosmX",
     "Macskusz111"
   ],
   "contributors": [],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/somecoolextraitems/textures/items/diamond_ingot.png",
+  "icon": "assets/somecoolextraitems/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
