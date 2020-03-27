@@ -17,6 +17,8 @@ import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
@@ -106,5 +108,19 @@ public class StoneZombieEntity extends ZombieEntity {
     return !iWorld_1.isAir(entityPos) && this.getPathfindingFavor(entityPos) >= 0.0F;
   }
 
+  protected SoundEvent getAmbientSound() {
+    return SoundEvents.BLOCK_STONE_PLACE;
+ }
 
+ protected SoundEvent getHurtSound(DamageSource source) {
+    return SoundEvents.BLOCK_STONE_BREAK;
+ }
+
+ protected SoundEvent getDeathSound() {
+    return SoundEvents.BLOCK_STONE_BREAK;
+ }
+
+ protected SoundEvent getStepSound() {
+    return SoundEvents.BLOCK_STONE_STEP;
+ }
 }
