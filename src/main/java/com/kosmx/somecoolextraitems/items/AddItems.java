@@ -36,12 +36,12 @@ public class AddItems {
     public static final Item Nutella = new NutellaItem(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(6).alwaysEdible().build()).recipeRemainder(Items.GLASS_BOTTLE).group(ItemGroup.FOOD));
     public static final Item BreadWithNutella = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(6).snack().build()).group(ItemGroup.FOOD));
     public static final Item BreadWithHoney = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(6).snack().build()).group(ItemGroup.FOOD));
-    public static final Item BPSMug = new Item(new Item.Settings());
+    public static final Item BPSMug = new Item(new Item.Settings().group(ItemGroup.FOOD));
     public static final Item Mug = new Item(new Item.Settings().group(ItemGroup.FOOD));
-    public static final Item BPSMugTea = new MugItem(BPSMug);
+    public static final Item BPSMugTea = new MugItem(BPSMug, ItemGroup.FOOD);
     public static final Item MugTea = new MugItem(Mug, ItemGroup.FOOD);
-    public static final Item StarwarsMug = new Item(new Item.Settings());
-    public static final Item StarwarsMugTea = new MugItem(StarwarsMug);
+    public static final Item StarwarsMug = new Item(new Item.Settings().group(ItemGroup.FOOD));
+    public static final Item StarwarsMugTea = new MugItem(StarwarsMug, ItemGroup.FOOD);
     public static final Item Nut = new Item(new Item.Settings().group(ItemGroup.FOOD));
     public static final Item Frankfurter = new Item( new Item.Settings().food(new FoodComponent.Builder().hunger(4).saturationModifier(2).snack().build()).group(ItemGroup.FOOD));
     public static final Item TeaFilter = new Item(new Item.Settings().group(ItemGroup.MISC));

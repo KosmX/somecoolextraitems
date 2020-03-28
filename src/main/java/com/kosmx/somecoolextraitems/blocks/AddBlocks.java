@@ -52,6 +52,7 @@ public class AddBlocks {
         AddPillow("pillow_red", DyeColor.RED);
         AddPillow("pillow_blue", DyeColor.BLUE);
         AddPillow("pillow_green", DyeColor.GREEN);
+        AddPillow("pillow_brown", DyeColor.BROWN);
     }
     private void netherGoldGeneration(Biome biome){
         if(biome.getCategory() == Biome.Category.NETHER){
