@@ -10,7 +10,7 @@
               {
                 "function": "minecraft:set_count",
                 "count": {
-                  "min": -1.0,
+                  "min": -2.0,
                   "max": 1.0,
                   "type": "minecraft:uniform"
                 }
@@ -23,7 +23,7 @@
                 }
               }
             ],
-            "name": "minecraft:rotten_flesh"
+            "name": "minecraft:magma_block"
           }
         ]
       },
@@ -36,7 +36,7 @@
               {
                 "function": "minecraft:set_count",
                 "count": {
-                  "min": 0.0,
+                  "min": -3.0,
                   "max": 1.0,
                   "type": "minecraft:uniform"
                 }
@@ -67,7 +67,7 @@
           },
           {
             "condition": "minecraft:random_chance_with_looting",
-            "chance": 0.025,
+            "chance": 0.006,
             "looting_multiplier": 0.01
           }
         ]

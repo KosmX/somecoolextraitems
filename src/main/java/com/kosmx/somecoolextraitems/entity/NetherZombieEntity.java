@@ -26,7 +26,7 @@ import net.minecraft.world.World;
 import java.util.RandomAccess;
 
 import com.kosmx.somecoolextraitems.items.AddItems;
-
+//net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 
 public class NetherZombieEntity extends ZombieEntity {

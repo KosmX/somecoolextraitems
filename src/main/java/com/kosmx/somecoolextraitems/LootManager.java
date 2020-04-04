@@ -40,8 +40,8 @@ public class LootManager{
     }
 
     private void AddMugs(String lootTable, int chance){
-        AddLoot(lootTable, AddItems.BPSMug, BinomialLootTableRange.create(4, 0.04f));
-        AddLoot(lootTable, AddItems.StarwarsMug, BinomialLootTableRange.create(4, 0.04f));
-        AddLoot(lootTable, AddItems.Mug, BinomialLootTableRange.create(4, 0.04f));
+        AddLoot(lootTable, AddItems.BPSMug, BinomialLootTableRange.create(4, 0.03f));
+        AddLoot(lootTable, AddItems.StarwarsMug, BinomialLootTableRange.create(4, 0.02f));
+        AddLoot(lootTable, AddItems.Mug, BinomialLootTableRange.create(4, 0.02f));
     }
 }
