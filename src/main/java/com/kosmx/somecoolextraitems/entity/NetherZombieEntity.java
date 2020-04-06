@@ -61,7 +61,7 @@ public class NetherZombieEntity extends ZombieEntity {
     if (bl) {
       float f = this.world.getLocalDifficulty(new BlockPos(this)).getLocalDifficulty();
       if (this.getMainHandStack().isEmpty()) {
-        target.setOnFireFor(2 * (int) f);
+        target.setOnFireFor(3 * (int) f);
       }
     }
 
@@ -92,7 +92,7 @@ public class NetherZombieEntity extends ZombieEntity {
     super.initAttributes();
     this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
     this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
-    this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
+    this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
     this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(2.0D);
     this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(25.0D);
     this.getAttributes().register(SPAWN_REINFORCEMENTS).setBaseValue(this.random.nextDouble() * 0.1D);

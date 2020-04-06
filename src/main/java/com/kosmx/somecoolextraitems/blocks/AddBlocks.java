@@ -61,8 +61,8 @@ public class AddBlocks {
                 new OreFeatureConfig(
                     OreFeatureConfig.Target.NETHERRACK, 
                     NetherGoldOre.getDefaultState(), 
-                    8)).createDecoratedFeature(Decorator.COUNT_RANGE.configure(
-                        new RangeDecoratorConfig(1, 3, 0, 127)
+                    6)).createDecoratedFeature(Decorator.COUNT_RANGE.configure(
+                        new RangeDecoratorConfig(1, 11, 0, 127)
                     ))
             );
         }

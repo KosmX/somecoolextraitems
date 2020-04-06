@@ -34,5 +34,7 @@
     "block.somecoolextraitems.pillow_brown": "Derp Pillow",
     "block.somecoolextraitems.pillow_green": "Creeper Pillow",
     "item.somecoolextraitems.frankfurter": "Frankfurter",
-    "item.somecoolextraitems.tea_filter": "Tea Filter"
+    "item.somecoolextraitems.tea_filter": "Tea Filter",
+    "item.somecoolextraitems.boar_spawn_egg": "Boar Spawn Egg",
+    "entity.somecoolextraitems.boar": "Boar"
 }

@@ -59,6 +59,7 @@ public class AddItems {
 
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "lava_zombie_spawn_egg"), NetherZombieEgg);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "stone_golem_spawn_egg"), StoneGolemEgg);
+        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "boar_spawn_egg"), new SpawnEggItem(AddEntities.BOAR_ENTITY, 0x965227, 0x5c2e11, new Item.Settings().group(ItemGroup.MISC)));
 
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nut"), Nut);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "frankfurter"), Frankfurter);
