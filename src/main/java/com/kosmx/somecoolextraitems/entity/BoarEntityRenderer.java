@@ -10,7 +10,7 @@ public class BoarEntityRenderer extends MobEntityRenderer<BoarEntity, PigEntityM
 
     public BoarEntityRenderer(EntityRenderDispatcher renderManager) {
         super(renderManager, new PigEntityModel<>(), 0.7f);
-        this.addFeature(new BoarSaddleFeatureRenderer(this));
+        //this.addFeature(new BoarSaddleFeatureRenderer(this));
     }
 
     @Override

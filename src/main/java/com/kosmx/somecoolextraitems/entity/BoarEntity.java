@@ -1,5 +1,6 @@
 package com.kosmx.somecoolextraitems.entity;
 
+import java.util.RandomAccess;
 import java.util.UUID;
 
 import javax.annotation.Nullable;
@@ -10,6 +11,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.SpawnType;
 import net.minecraft.entity.ai.goal.AnimalMateGoal;
 import net.minecraft.entity.ai.goal.FollowParentGoal;
 import net.minecraft.entity.ai.goal.FollowTargetGoal;
@@ -40,13 +42,14 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 //import net.minecraft.entity.ai.goal.AttackGoal;
 
 public class BoarEntity extends AnimalEntity {
     // net.minecraft.entity.mob.ZombiePigmanEntity
     // net.minecraft.entity.passive.WolfEntity
-    private static final TrackedData<Boolean> SADDLED;
+    //private static final TrackedData<Boolean> SADDLED;
     private static final TrackedData<Integer> field_6815;
     private static final Ingredient BREEDING_INGREDIENT;
     private static final EntityAttributeModifier ATTACKING_SPEED_BOOST;
@@ -84,7 +87,7 @@ public class BoarEntity extends AnimalEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(10.0D);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(12.0D);
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
         // this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
         // this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
@@ -92,9 +95,9 @@ public class BoarEntity extends AnimalEntity {
     }
 
     @Nullable
-    public Entity getPrimaryPassenger() {
-        return this.getPassengerList().isEmpty() ? null : (Entity) this.getPassengerList().get(0);
-    }
+    //public Entity getPrimaryPassenger() {
+    //    return this.getPassengerList().isEmpty() ? null : (Entity) this.getPassengerList().get(0);
+    //}
 
     public boolean tryAttack(Entity target){
         boolean bl = target.damage(DamageSource.mob(this), (float)((int)this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).getValue()));
@@ -203,13 +206,13 @@ public class BoarEntity extends AnimalEntity {
 
     protected void initDataTracker() {
         super.initDataTracker();
-        this.dataTracker.startTracking(SADDLED, false);
+        //this.dataTracker.startTracking(SADDLED, false);
         this.dataTracker.startTracking(field_6815, 0);
     }
 
     public void writeCustomDataToTag(CompoundTag tag) {
         super.writeCustomDataToTag(tag);
-        tag.putBoolean("Saddle", this.isSaddled());
+        //tag.putBoolean("Saddle", this.isSaddled());
         tag.putShort("Anger", (short)this.anger);
         if (this.angerTarget != null){
             tag.putString("HurtBy", this.angerTarget.toString());
@@ -221,7 +224,7 @@ public class BoarEntity extends AnimalEntity {
 
     public void readCustomDataFromTag(CompoundTag tag) {
         super.readCustomDataFromTag(tag);
-        this.setSaddled(tag.getBoolean("Saddle"));
+        //this.setSaddled(tag.getBoolean("Saddle"));
         this.anger = tag.getShort("Anger");
         String attacker = tag.getString("HurtBy");
         if(!attacker.isEmpty()){
@@ -259,38 +262,40 @@ public class BoarEntity extends AnimalEntity {
             if (itemStack.getItem() == Items.NAME_TAG) {
                 itemStack.useOnEntity(player, this, hand);
                 return true;
-            } else if (this.isSaddled() && !this.hasPassengers()) {
-                if (!this.world.isClient) {
-                    player.startRiding(this);
-                }
+            //} else if (this.isSaddled() && !this.hasPassengers()) {
+            //    if (!this.world.isClient) {
+            //        player.startRiding(this);
+            //    }
 
-                return true;
-            } else {
-                return itemStack.getItem() == Items.SADDLE && itemStack.useOnEntity(player, this, hand);
+            //    return true;
+            //} else {
+            //    return itemStack.getItem() == Items.SADDLE && itemStack.useOnEntity(player, this, hand);
+            }
+            else{
+                return false;
             }
         }
     }
 
-    protected void dropInventory() {
-        super.dropInventory();
-        if (this.isSaddled()) {
-            this.dropItem(Items.SADDLE);
-        }
+    //protected void dropInventory() {
+        //super.dropInventory();
+        //if (this.isSaddled()) {
+        //    this.dropItem(Items.SADDLE);
+        //}
 
-    }
+    //}
 
-    public boolean isSaddled() {
-        return (Boolean) this.dataTracker.get(SADDLED);
-    }
+    //public boolean isSaddled() {
+    //    return (Boolean) this.dataTracker.get(SADDLED);
+    //}
 
-    public void setSaddled(boolean saddled) {
-        if (saddled) {
-            this.dataTracker.set(SADDLED, true);
-        } else {
-            this.dataTracker.set(SADDLED, false);
-        }
-
-    }
+    //public void setSaddled(boolean saddled) {
+    //    if (saddled) {
+    //        this.dataTracker.set(SADDLED, true);
+    //    } else {
+    //        this.dataTracker.set(SADDLED, false);
+    //    }
+    //}
 
     public void onStruckByLightning(LightningEntity lightning) {
         ZombiePigmanEntity zombiePigmanEntity = (ZombiePigmanEntity) EntityType.ZOMBIE_PIGMAN.create(this.world);
@@ -374,10 +379,19 @@ public class BoarEntity extends AnimalEntity {
     }
 
     static {
-        SADDLED = DataTracker.registerData(BoarEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+        //SADDLED = DataTracker.registerData(BoarEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
         field_6815 = DataTracker.registerData(BoarEntity.class, TrackedDataHandlerRegistry.INTEGER);
         BREEDING_INGREDIENT = Ingredient.ofItems(Items.CARROT, Items.POTATO, Items.BEETROOT);
         ATTACKING_SPEED_BOOST = (new EntityAttributeModifier(ATTACKING_SPEED_BOOST_UUID, "Attacking speed boost", 0.2d, EntityAttributeModifier.Operation.ADDITION)).setSerialize(false);
+    }
+
+    public static boolean canSpawn(EntityType<BoarEntity> type, IWorld world, SpawnType spawn, BlockPos pos, RandomAccess random){
+        return !world.isAir(pos.add(0, -1, 0)) && pos.getY() >= 62;
+    }
+
+    public boolean canSpawn(IWorld world, SpawnType spawnType){
+        BlockPos pos = new BlockPos(this.getX(), this.getY(), this.getZ());
+        return !world.isAir(pos.add(0, -1, 0)) && this.getY() >= 62;
     }
 
 }

@@ -123,8 +123,8 @@ public class NetherZombieEntity extends ZombieEntity {
 
 
   public boolean canSpawn(IWorld iWorld_1, SpawnType spawnType_1) {
-    BlockPos entityPos = new BlockPos(this.getX(), this.getY()-1, this.getZ());
-    return !iWorld_1.isAir(entityPos) && this.getPathfindingFavor(entityPos) >= 0.0F;
+    BlockPos entityPos = new BlockPos(this.getX(), this.getY(), this.getZ());
+    return !iWorld_1.isAir(entityPos.add(0, -1, 0));
   }
 
 
