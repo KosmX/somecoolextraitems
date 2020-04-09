@@ -29,8 +29,7 @@ public class AddItems {
     //net.minecraft.item.Items
     //foods
     //net.minecraft.recipe.CraftingRecipe
-
-    //TODO cocoa_bucket ...ghost
+ 
     //witch
 
     public static final Item Nutella = new NutellaItem(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(6).alwaysEdible().build()).recipeRemainder(Items.GLASS_BOTTLE).group(ItemGroup.FOOD));

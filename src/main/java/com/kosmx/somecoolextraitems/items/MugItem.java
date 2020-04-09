@@ -40,7 +40,7 @@ public class MugItem extends Item {
       if (!world.isClient) {
          user.removeStatusEffect(StatusEffects.NAUSEA);
          user.removeStatusEffect(StatusEffects.BLINDNESS);
-         user.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 400));
+         user.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 600));
       }
 
       if (stack.isEmpty()) {
