@@ -31,16 +31,18 @@ public class MagicalFireballEntity extends AbstractFireballEntity {
    protected void onCollision(HitResult hitResult) {
       super.onCollision(hitResult);
       if (!this.world.isClient) {
-         if (hitResult.getType() == HitResult.Type.ENTITY && !(((EntityHitResult)hitResult).getEntity() instanceof SkeletonEntity)) {
-            Entity entity = ((EntityHitResult)hitResult).getEntity();
-            if (!entity.isFireImmune()) {
-               int i = entity.getFireTicks();
-               entity.setOnFireFor(5);
-               boolean bl = entity.damage(DamageSource.explosiveProjectile(this, this.owner), 5.0F);
-               if (bl) {
-                  this.dealDamage(this.owner, entity);
-               } else {
-                  entity.setFireTicks(i);
+         if (hitResult.getType() == HitResult.Type.ENTITY) {
+            if (!(((EntityHitResult)hitResult).getEntity() instanceof SkeletonEntity)){
+               Entity entity = ((EntityHitResult)hitResult).getEntity();
+               if (!entity.isFireImmune()) {
+                  int i = entity.getFireTicks();
+                  entity.setOnFireFor(5);
+                  boolean bl = entity.damage(DamageSource.explosiveProjectile(this, this.owner), 5.0F);
+                  if (bl) {
+                     this.dealDamage(this.owner, entity);
+                  } else {
+                     entity.setFireTicks(i);
+                  }
                }
             }
          } else if (this.owner == null || !(this.owner instanceof MobEntity) || this.world.getGameRules().getBoolean(GameRules.MOB_GRIEFING)) {

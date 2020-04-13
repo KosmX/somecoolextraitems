@@ -16,10 +16,10 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.SmallFireballEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 
 public abstract class AbstractMobLordEntity extends HostileEntity implements MobSpawningItnerface {
@@ -108,7 +108,10 @@ public abstract class AbstractMobLordEntity extends HostileEntity implements Mob
 	}
 
 	protected int setSummonCooldown(){
-		return this.getRandom().nextInt(120) + 80;
+		if (this.world.getDifficulty() == Difficulty.HARD){
+			return this.getRandom().nextInt(180) + 160;
+		}
+		return this.getRandom().nextInt(240) + 160;
 	}
 
 	protected void playStepSound(){
@@ -225,7 +228,7 @@ public abstract class AbstractMobLordEntity extends HostileEntity implements Mob
 						double z = target.getZ() - this.mobLord.getZ() + vec3d.z;
 						double y = target.getY() - this.mobLord.getY();
 						world.playLevelEvent((PlayerEntity)null, 1016, new BlockPos(this.mobLord), 0);
-						SmallFireballEntity fireball = new SmallFireballEntity(world, this.mobLord, x, y, z);
+						MagicalFireballEntity fireball = new MagicalFireballEntity(world, this.mobLord, x, y, z);
 						fireball.updatePosition(this.mobLord.getX() + vec3d.x , this.mobLord.getY() + 1.7d, this.mobLord.getZ() + vec3d.z);
 						world.spawnEntity(fireball);
 						this.cooldown = -10;
