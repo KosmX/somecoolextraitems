@@ -3,7 +3,6 @@ package com.kosmx.somecoolextraitems.entity;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.goal.AvoidSunlightGoal;
 import net.minecraft.entity.ai.goal.EscapeSunlightGoal;
 import net.minecraft.entity.ai.goal.FollowTargetGoal;
@@ -14,17 +13,20 @@ import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.SmallFireballEntity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public abstract class AbstractMobLordEntity extends HostileEntity implements RangedAttackMob{
+public abstract class AbstractMobLordEntity extends HostileEntity implements MobSpawningItnerface {
+	private final FireballAttackGoal rangedAttackGoal = new FireballAttackGoal(this);
+	private int summonCooldown = 0;
 	private boolean doesRangedAttack = true;
-	private final FireballAttackGoal rangedAttackGoal;
-	private final MeleeAttackGoal meleeAttackGoal = new MeleeAttackGoal(this, 1.2d, false){
+	private final MeleeAttackGoal meleeAttackGoal = new MeleeAttackGoal(this, 1.2d, false); /*{
 		public void stop(){
 			super.stop();
 			AbstractMobLordEntity.this.setAttacking(false);
@@ -33,15 +35,37 @@ public abstract class AbstractMobLordEntity extends HostileEntity implements Ran
 			super.start();
 			AbstractMobLordEntity.this.setAttacking(true);
 		}
-	};
+	};*/
+	private float field_6743;
+	private float field_6737 = 1f;
 	//private int fireballStrenght = 1;
 	protected AbstractMobLordEntity(EntityType<? extends HostileEntity> type, World world, int attackSpeed, int meleeRange) {
 		super(type, world);
-		this.rangedAttackGoal = new FireballAttackGoal(this);
-		//TODO this.updateAttackType();
 		//net.minecraft.entity.mob.AbstractSkeletonEntity
 		//net.minecraft.entity.mob.SkeletonEntity
 		//net.minecraft.entity.mob.BlazeEntity
+		//net.minecraft.entity.mob.GhastEntity
+		//net.minecraft.entity.passive.ChickenEntity
+		this.goalSelector.add(1, this.rangedAttackGoal);
+		//this.goalSelector.add(2, this.meleeAttackGoal);
+	}
+	
+	public void tickMovement(){
+		
+		super.tickMovement();
+		this.field_6743 = (float)((double)this.field_6743 + (double)(this.onGround ? -1 : 4) * 0.3D);
+		this.field_6743 = MathHelper.clamp(this.field_6743, 0.0F, 1.0F);
+		if (!this.onGround && this.field_6737 < 1.0F) {
+		   this.field_6737 = 1.0F;
+		}
+  
+		this.field_6737 = (float)((double)this.field_6737 * 0.9D);
+		Vec3d vec3d = this.getVelocity();
+		if (!this.onGround && vec3d.y < 0.0D) {
+		   this.setVelocity(vec3d.multiply(1.0D, 0.6D, 1.0D));
+		}
+  
+		//this.field_6741 += this.field_6737 * 2.0F;
 	}
 
 	protected AbstractMobLordEntity(EntityType<? extends HostileEntity> type, World world){
@@ -50,29 +74,52 @@ public abstract class AbstractMobLordEntity extends HostileEntity implements Ran
     protected void initGoals(){
 		this.goalSelector.add(3, new AvoidSunlightGoal(this));
 		this.goalSelector.add(4, new EscapeSunlightGoal(this,1d));
-		this.goalSelector.add(1, rangedAttackGoal);
-		this.goalSelector.add(2, meleeAttackGoal);
+		//this.goalSelector.add(1, this.rangedAttackGoal);
+		//this.goalSelector.add(2, this.meleeAttackGoal);
 		this.goalSelector.add(5, new WanderAroundFarGoal(this, 0.6f));
 		this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 10));
-		this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));	//TODO don't revenge on its own skeletons
+		this.targetSelector.add(1, new RevengeGoal(this, SkeletonEntity.class));	//TODO don't revenge on its own skeletons
 		this.targetSelector.add(2, new FollowTargetGoal<>(this, PlayerEntity.class, true));
 		this.targetSelector.add(3, new FollowTargetGoal<>(this, IronGolemEntity.class, true));
 	}
+	public boolean handleFallDamage(float d, float m){
+        return false;
+    }
 
 	protected void initAttributes(){
 		super.initAttributes();
 		this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.3d);
 	}
 
+	protected void mobTick(){
+		//this.world.addParticle(new DustParticleEffect(), alwaysSpawn, x, y, z, velocityX, velocityY, velocityZ);
+
+		if(!isAiDisabled()){
+			this.updateAttackType();
+			if(this.summonCooldown <= 0 && this.getTarget() != null && this.getTarget().canSee(this)){
+				this.summonMinions();
+				this.summonCooldown = setSummonCooldown();
+			}
+			else{
+				--this.summonCooldown;
+			}
+		}
+		super.mobTick();
+	}
+
+	protected int setSummonCooldown(){
+		return this.getRandom().nextInt(120) + 80;
+	}
 
 	protected void playStepSound(){
 		//It's floating, what do you think?
 	}
 
 	public EntityGroup getGroup(){
-		return EntityGroup.UNDEAD;
+		return EntityGroup.ILLAGER;
 	}
 
+	
 	protected void updateAttackType(){
 		if(this.getTarget() != null){
 			boolean isTargetFar = this.getTarget().squaredDistanceTo(this) > 8;
@@ -88,6 +135,7 @@ public abstract class AbstractMobLordEntity extends HostileEntity implements Ran
 			}
 		}
 	}
+
 	static class FireballAttackGoal extends	Goal{
 		private final AbstractMobLordEntity mobLord;
 		private int targetVisibility = 0;
@@ -101,14 +149,14 @@ public abstract class AbstractMobLordEntity extends HostileEntity implements Ran
 		private boolean movingToBack;
 
 		public FireballAttackGoal(AbstractMobLordEntity mobLord, int attackSpeed, int meleeRange, double attackRange, double speed){
-			this. mobLord = mobLord;
+			this.mobLord = mobLord;
 			this.attackSpeed = attackSpeed;
 			this.meleeRange = meleeRange;
 			this.attackRange = attackRange;
 			this.speed = speed;
 		}
 		public FireballAttackGoal(AbstractMobLordEntity mobLord){
-			this(mobLord, 30, 8, 81, 1d);
+			this(mobLord, 30, 8, 512, 1d);
 		}
 
 		private boolean knownTarget(){
@@ -153,6 +201,7 @@ public abstract class AbstractMobLordEntity extends HostileEntity implements Ran
 			}
 
 		}
+		
 
 		public void tick(){
 			LivingEntity target = this.mobLord.getTarget();
@@ -174,10 +223,10 @@ public abstract class AbstractMobLordEntity extends HostileEntity implements Ran
 						Vec3d vec3d = this.mobLord.getRotationVec(1.0f);
 						double x = target.getX() - this.mobLord.getX() + vec3d.x;
 						double z = target.getZ() - this.mobLord.getZ() + vec3d.z;
-						double y = target.getY() - this.mobLord.getY() + 1;
+						double y = target.getY() - this.mobLord.getY();
 						world.playLevelEvent((PlayerEntity)null, 1016, new BlockPos(this.mobLord), 0);
 						SmallFireballEntity fireball = new SmallFireballEntity(world, this.mobLord, x, y, z);
-						fireball.updatePosition(this.mobLord.getX() + vec3d.x, this.mobLord.getY() + 1, this.mobLord.getZ() + vec3d.z);
+						fireball.updatePosition(this.mobLord.getX() + vec3d.x , this.mobLord.getY() + 1.7d, this.mobLord.getZ() + vec3d.z);
 						world.spawnEntity(fireball);
 						this.cooldown = -10;
 					}

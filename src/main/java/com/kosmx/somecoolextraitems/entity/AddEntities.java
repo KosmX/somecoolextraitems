@@ -16,21 +16,32 @@ public class AddEntities {
         Registry.ENTITY_TYPE,
         new Identifier("somecoolextraitems", "lava_zombie"),
         FabricEntityTypeBuilder.create(EntityCategory.MONSTER, (EntityType.EntityFactory<NetherZombieEntity>) NetherZombieEntity::new).size(EntityDimensions.fixed(0.6f,1.95f)).setImmuneToFire().build()
-    );
+    )
+    ;
 
     public static final EntityType<StoneZombieEntity> STONE_ZOMBIE = 
     Registry.register(
         Registry.ENTITY_TYPE,
         new Identifier("somecoolextraitems", "stone_golem"),
         FabricEntityTypeBuilder.create(EntityCategory.MONSTER, (EntityType.EntityFactory<StoneZombieEntity>) StoneZombieEntity::new).size(EntityDimensions.fixed(0.6f, 1.95f)).build()
-    );
+    )
+    ;
 
     public static final EntityType<BoarEntity> BOAR_ENTITY = 
     Registry.register(
         Registry.ENTITY_TYPE,
         new Identifier("somecoolextraitems", "boar"),
         FabricEntityTypeBuilder.create(EntityCategory.CREATURE, (EntityType.EntityFactory<BoarEntity>) BoarEntity::new).size(EntityDimensions.fixed(0.9f, 0.9f)).build()
-        );
+    )
+    ;
+
+    public static final EntityType<WitchEntity> WITCH_ENTITY = 
+    Registry.register(
+        Registry.ENTITY_TYPE,
+        new Identifier("somecoolextraitems", "witch"),
+        FabricEntityTypeBuilder.create(EntityCategory.MONSTER, (EntityType.EntityFactory<WitchEntity>) WitchEntity::new).size(EntityDimensions.fixed(0.65f, 1.95f)).setImmuneToFire().build()
+    )
+    ;
 
     public AddEntities(){
         registerEntityToSpawn(NETHER_ZOMBIE, EntityCategory.MONSTER, 50, 1, 10, Biomes.NETHER);

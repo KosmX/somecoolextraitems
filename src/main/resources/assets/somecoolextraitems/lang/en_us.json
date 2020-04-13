@@ -36,5 +36,7 @@
     "item.somecoolextraitems.frankfurter": "Frankfurter",
     "item.somecoolextraitems.tea_filter": "Tea Filter",
     "item.somecoolextraitems.boar_spawn_egg": "Boar Spawn Egg",
-    "entity.somecoolextraitems.boar": "Boar"
+    "entity.somecoolextraitems.boar": "Boar",
+    "item.somecoolextraitems.witch_spawn_egg": "Witch Spawn Egg",
+    "entity.somecoolextraitems.witch": "Witch"
 }
