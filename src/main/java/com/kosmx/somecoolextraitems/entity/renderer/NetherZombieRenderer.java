@@ -1,4 +1,6 @@
-package com.kosmx.somecoolextraitems.entity;
+package com.kosmx.somecoolextraitems.entity.renderer;
+
+import com.kosmx.somecoolextraitems.entity.NetherZombieEntity;
 
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
@@ -9,10 +11,10 @@ import net.minecraft.client.render.entity.feature.HeldItemFeatureRenderer;
 import net.minecraft.client.render.entity.model.ZombieEntityModel;
 import net.minecraft.util.Identifier;
 
-public class StoneZombieRenderer extends MobEntityRenderer<StoneZombieEntity, ZombieEntityModel<StoneZombieEntity>> {
+public class NetherZombieRenderer extends MobEntityRenderer<NetherZombieEntity, ZombieEntityModel<NetherZombieEntity>> {
 
 
-    public StoneZombieRenderer(EntityRenderDispatcher renderManager) {
+    public NetherZombieRenderer(EntityRenderDispatcher renderManager) {
         super(renderManager, new ZombieEntityModel<>(0.0f, false), 1);
         this.addFeature(new HeadFeatureRenderer<>(this));
         this.addFeature(new ElytraFeatureRenderer<>(this));
@@ -22,11 +24,15 @@ public class StoneZombieRenderer extends MobEntityRenderer<StoneZombieEntity, Zo
     //net.minecraft.client.render.entity.PlayerEntityRenderer
 
     @Override
-    public Identifier getTexture(StoneZombieEntity entity) {
-        return new Identifier("somecoolextraitems:textures/entity/stone_golem.png");
+    public Identifier getTexture(NetherZombieEntity entity) {
+        return new Identifier("somecoolextraitems:textures/entity/lava_zombie/lava_zombie.png");
 
     //net.minecraft.client.render.entity.ZombieEntityRenderer
     //net.minecraft.client.render.entity.ZombiePigmanEntityRenderer
+    }
+
+    protected int getBlockLight(NetherZombieEntity magmaCubeEntity, float f) {
+        return 15;
     }
 
 

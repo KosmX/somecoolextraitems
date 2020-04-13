@@ -1,5 +1,6 @@
-package com.kosmx.somecoolextraitems.entity;
+package com.kosmx.somecoolextraitems.entity.renderer;
 
+import com.kosmx.somecoolextraitems.entity.AddEntities;
 
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 

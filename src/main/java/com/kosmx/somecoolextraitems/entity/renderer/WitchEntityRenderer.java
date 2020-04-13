@@ -1,4 +1,6 @@
-package com.kosmx.somecoolextraitems.entity;
+package com.kosmx.somecoolextraitems.entity.renderer;
+
+import com.kosmx.somecoolextraitems.entity.WitchEntity;
 
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
