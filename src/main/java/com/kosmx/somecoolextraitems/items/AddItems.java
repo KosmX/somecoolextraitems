@@ -23,6 +23,7 @@ public class AddItems {
     public static final Item NGoldSword = new NetherGoldSword(new ToolMaterialNethergold());
     public static final Item NGoldHoe = new NetherGoldHoe(new ToolMaterialNethergold());
     public static final Item NGoldShovel = new NetherGoldShovel(new ToolMaterialNethergold());
+    public static final Item SkeletonRod = new SkeletonSpawner(new ToolMaterialMagic(), new Item.Settings().group(ItemGroup.MISC));
     public static final Item NetherZombieEgg = new SpawnEggItem(AddEntities.NETHER_ZOMBIE, 0xffaa33, 0x3d0303, new Item.Settings().group(ItemGroup.MISC));
     public static final Item StoneGolemEgg = new SpawnEggItem(AddEntities.STONE_ZOMBIE, 0xb3b3b3, 0x8a8a8a, new Item.Settings().group(ItemGroup.MISC));
     //public static final Item DerpFish = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.1F).build()));
@@ -73,6 +74,7 @@ public class AddItems {
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergolden_shovel"), NGoldShovel);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergolden_sword"), NGoldSword);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nethergolden_hoe"), NGoldHoe);
+        Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "skeleton_rod"), SkeletonRod);
 
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "nutolla"), Nutella);
         Registry.register(Registry.ITEM, new Identifier("somecoolextraitems", "honey_bread"), BreadWithHoney);

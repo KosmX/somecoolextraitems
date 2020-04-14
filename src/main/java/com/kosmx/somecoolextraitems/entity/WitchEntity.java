@@ -2,6 +2,10 @@ package com.kosmx.somecoolextraitems.entity;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
+import com.kosmx.somecoolextraitems.items.AddItems;
+
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
@@ -15,6 +19,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.IWorld;
+import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 
 public class WitchEntity extends AbstractMobLordEntity {
@@ -28,9 +34,9 @@ public class WitchEntity extends AbstractMobLordEntity {
     public void tickMovement(){
         super.tickMovement();
         if (this.world.isClient){
-            this.world.addParticle(new DustParticleEffect(0.4f, 0.5f, 1f, 1.6f), false, this.getParticleX(0.3d) , this.getY() + this.getRandom().nextFloat()/2, this.getParticleZ(0.3d), (this.getRandom().nextFloat()-0.5f)/8, -0.1f, (this.getRandom().nextFloat()-0.5f)/8);
-            this.world.addParticle(new DustParticleEffect(0.4f, 0.5f, 1f, 1.6f), false, this.getParticleX(0.5d) , this.getY() + this.getRandom().nextFloat()/3, this.getParticleZ(0.5d), (this.getRandom().nextFloat()-0.5f)/8, -0.1f, (this.getRandom().nextFloat()-0.5f)/8);            this.world.addParticle(new DustParticleEffect(0.4f, 0.5f, 1f, 1.6f), false, this.getParticleX(0.3d) , this.getY() + this.getRandom().nextFloat()/3, this.getParticleZ(0.3d), (this.getRandom().nextFloat()-0.5f)/8, -0.1f, (this.getRandom().nextFloat()-0.5f)/8);
-            this.world.addParticle(new DustParticleEffect(0.4f, 0.5f, 1f, 1.6f), false, this.getParticleX(0.7d) , this.getY() + this.getRandom().nextFloat()/6, this.getParticleZ(0.7d), (this.getRandom().nextFloat()-0.5f)/8, -0.1f, (this.getRandom().nextFloat()-0.5f)/8);
+            this.world.addParticle(new DustParticleEffect(0.5f, 0.6f, 1f, 1.3f), false, this.getParticleX(0.3d) , this.getY() + this.getRandom().nextFloat()/2, this.getParticleZ(0.3d), (this.getRandom().nextFloat()-0.5f)/8, -0.1f, (this.getRandom().nextFloat()-0.5f)/8);
+            this.world.addParticle(new DustParticleEffect(0.5f, 0.6f, 1f, 1.3f), false, this.getParticleX(0.5d) , this.getY() + this.getRandom().nextFloat()/3, this.getParticleZ(0.5d), (this.getRandom().nextFloat()-0.5f)/8, -0.1f, (this.getRandom().nextFloat()-0.5f)/8);            this.world.addParticle(new DustParticleEffect(0.4f, 0.5f, 1f, 1.6f), false, this.getParticleX(0.3d) , this.getY() + this.getRandom().nextFloat()/3, this.getParticleZ(0.3d), (this.getRandom().nextFloat()-0.5f)/8, -0.1f, (this.getRandom().nextFloat()-0.5f)/8);
+            this.world.addParticle(new DustParticleEffect(0.5f, 0.6f, 1f, 1.3f), false, this.getParticleX(0.7d) , this.getY() + this.getRandom().nextFloat()/6, this.getParticleZ(0.7d), (this.getRandom().nextFloat()-0.5f)/8, -0.1f, (this.getRandom().nextFloat()-0.5f)/8);
         }
     }
 
@@ -42,6 +48,13 @@ public class WitchEntity extends AbstractMobLordEntity {
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20d);
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.5d);
     }
+
+    @Nullable
+   public EntityData initialize(IWorld world, LocalDifficulty difficulty, SpawnType spawnType, @Nullable EntityData entityData, @Nullable CompoundTag entityTag){
+        EntityData data = super.initialize(world, difficulty, spawnType, entityData, entityTag);
+        this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(AddItems.SkeletonRod));
+        return data;
+   }
 
     @Override
     public boolean trySpawnMinion() {
@@ -70,7 +83,7 @@ public class WitchEntity extends AbstractMobLordEntity {
             //skeleton.setCanPickUpLoot(this.random.nextFloat() < 0.55F * this.world.getLocalDifficulty(this.getBlockPos()).getClampedLocalDifficulty());
             skeleton.setTarget(this.getTarget());
             this.world.spawnEntity(skeleton);
-            world.playLevelEvent(2004, new BlockPos(skeleton), 0);
+            this.world.playLevelEvent(2004, new BlockPos(skeleton), 0);
             skeleton.playSpawnEffects();
         }
         //else{System.out.println("failed");}

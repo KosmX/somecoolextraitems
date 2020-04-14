@@ -78,7 +78,7 @@ public abstract class AbstractMobLordEntity extends HostileEntity implements Mob
 		//this.goalSelector.add(2, this.meleeAttackGoal);
 		this.goalSelector.add(5, new WanderAroundFarGoal(this, 0.6f));
 		this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 10));
-		this.targetSelector.add(1, new RevengeGoal(this, SkeletonEntity.class));	//TODO don't revenge on its own skeletons
+		this.targetSelector.add(1, new RevengeGoal(this, SkeletonEntity.class));
 		this.targetSelector.add(2, new FollowTargetGoal<>(this, PlayerEntity.class, true));
 		this.targetSelector.add(3, new FollowTargetGoal<>(this, IronGolemEntity.class, true));
 	}
@@ -94,7 +94,7 @@ public abstract class AbstractMobLordEntity extends HostileEntity implements Mob
 	protected void mobTick(){
 		//this.world.addParticle(new DustParticleEffect(), alwaysSpawn, x, y, z, velocityX, velocityY, velocityZ);
 
-		if(!isAiDisabled()){
+		if(!isAiDisabled() && !this.world.isClient){
 			this.updateAttackType();
 			if(this.summonCooldown <= 0 && this.getTarget() != null && this.getTarget().canSee(this)){
 				this.summonMinions();
