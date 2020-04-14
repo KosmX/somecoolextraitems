@@ -1,6 +1,7 @@
 package com.kosmx.somecoolextraitems.entity;
 
 import java.util.Random;
+import java.util.RandomAccess;
 
 import javax.annotation.Nullable;
 
@@ -103,6 +104,15 @@ public class WitchEntity extends AbstractMobLordEntity {
     @Override
     public int maxTrials() {
         return 256;
+    }
+    public static boolean canSpawn(EntityType<NetherZombieEntity> type, IWorld world, SpawnType spawnType, BlockPos pos,RandomAccess random) {
+        return world.getDifficulty() != Difficulty.PEACEFUL && !world.isAir(pos.add(0, -1, 0));
+    }
+
+
+
+    public boolean canSpawn(IWorld iWorld_1, SpawnType spawnType_1) {BlockPos entityPos = new BlockPos(this.getX(), this.getY(), this.getZ());
+        return !iWorld_1.isAir(entityPos.add(0, -1, 0));
     }
 
 }
