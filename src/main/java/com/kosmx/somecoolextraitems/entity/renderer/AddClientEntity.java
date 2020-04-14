@@ -4,6 +4,7 @@ import com.kosmx.somecoolextraitems.entity.AddEntities;
 
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
+import net.minecraft.client.render.entity.SkeletonEntityRenderer;
 
 public class AddClientEntity{
     public AddClientEntity(){
@@ -12,5 +13,6 @@ public class AddClientEntity{
         EntityRendererRegistry.INSTANCE.register(AddEntities.BOAR_ENTITY, (entityRenderDispatcher, ctx) -> new BoarEntityRenderer(entityRenderDispatcher));
         EntityRendererRegistry.INSTANCE.register(AddEntities.WITCH_ENTITY, (entityRenderDispatcher, ctx) -> new WitchEntityRenderer<>(entityRenderDispatcher));
         EntityRendererRegistry.INSTANCE.register(AddEntities.MAGIC_PROJECTILE, (entityRenderDispatcher, ctx) -> new FlyingItemEntityRenderer<>(entityRenderDispatcher, ctx.getItemRenderer(), 0.75f, true));
+        EntityRendererRegistry.INSTANCE.register(AddEntities.SKELETON_MINION, (entityRenderDispatcher, ctx) -> new SkeletonEntityRenderer(entityRenderDispatcher));
     }
 }

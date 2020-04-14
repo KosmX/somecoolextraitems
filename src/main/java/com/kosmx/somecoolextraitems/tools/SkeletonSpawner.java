@@ -2,6 +2,8 @@ package com.kosmx.somecoolextraitems.tools;
 
 import java.util.Random;
 
+import com.kosmx.somecoolextraitems.entity.AddEntities;
+
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
@@ -46,7 +48,7 @@ public class SkeletonSpawner extends SpawnerTool {
             //for (int i = 0; i< 128; i++){
             //    user.world.addParticle(new DustParticleEffect(0.6f, 0.6f, 0.6f, 1f), true, x-0.5f + user.getRandom().nextFloat() , y - 0.5f + user.getRandom().nextFloat(), z - 0.5 + user.getRandom().nextFloat(), user.getRandom().nextFloat(), user.getRandom().nextFloat(), user.getRandom().nextFloat());
             //}
-            SkeletonEntity skeleton = (SkeletonEntity)EntityType.SKELETON.create(user.world);
+            SkeletonEntity skeleton = (SkeletonEntity)AddEntities.SKELETON_MINION.create(user.world);
             skeleton.resetPosition(x, y, z);
             skeleton.updatePosition(x, y, z);
             skeleton.initialize(user.world, user.world.getLocalDifficulty(new BlockPos(x, y, z)), SpawnType.SPAWNER, (EntityData)null, (CompoundTag)null);

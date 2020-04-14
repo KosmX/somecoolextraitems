@@ -11,6 +11,7 @@ import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.Biome.SpawnEntry;
 
 public class AddEntities {
+    //net.minecraft.entity.EntityType
     public static final EntityType<NetherZombieEntity> NETHER_ZOMBIE =
     Registry.register(
         Registry.ENTITY_TYPE,
@@ -51,6 +52,13 @@ public class AddEntities {
         FabricEntityTypeBuilder.create(EntityCategory.MISC, (EntityType.EntityFactory<MagicalFireballEntity>) MagicalFireballEntity::new).size(EntityDimensions.fixed(0.3125F, 0.3125F)).build()
     )
     ;
+
+    public static final EntityType<SkeletonMinion> SKELETON_MINION =
+    Registry.register(
+        Registry.ENTITY_TYPE,
+        new Identifier("somecoolextraitems", "skeleton"),
+        FabricEntityTypeBuilder.create(EntityCategory.MONSTER, (EntityType.EntityFactory<SkeletonMinion>) SkeletonMinion::new).size(EntityDimensions.fixed(0.6F, 1.99F)).build()
+    );
 
     public AddEntities(){
         registerEntityToSpawn(NETHER_ZOMBIE, EntityCategory.MONSTER, 50, 1, 10, Biomes.NETHER);
