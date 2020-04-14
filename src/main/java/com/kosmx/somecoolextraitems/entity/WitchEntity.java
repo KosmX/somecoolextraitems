@@ -54,6 +54,7 @@ public class WitchEntity extends AbstractMobLordEntity {
    public EntityData initialize(IWorld world, LocalDifficulty difficulty, SpawnType spawnType, @Nullable EntityData entityData, @Nullable CompoundTag entityTag){
         EntityData data = super.initialize(world, difficulty, spawnType, entityData, entityTag);
         this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(AddItems.SkeletonRod));
+        this.handDropChances[EquipmentSlot.MAINHAND.getArmorStandSlotId()] = 0.1f;
         return data;
    }
 
@@ -106,7 +107,7 @@ public class WitchEntity extends AbstractMobLordEntity {
         return 256;
     }
     public static boolean canSpawn(EntityType<NetherZombieEntity> type, IWorld world, SpawnType spawnType, BlockPos pos,RandomAccess random) {
-        return world.getDifficulty() != Difficulty.PEACEFUL && !world.isAir(pos.add(0, -1, 0));
+        return world.getDifficulty() != Difficulty.PEACEFUL && !world.isAir(pos.add(0, -1, 0)) && world.getLightLevel(pos) < 5;
     }
 
 

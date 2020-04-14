@@ -41,7 +41,7 @@ public class ToolMaterialMagic implements ToolMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Items.TOTEM_OF_UNDYING);
+        return Ingredient.ofItems(Items.SKELETON_SKULL); //change it 
     }
     
 }
