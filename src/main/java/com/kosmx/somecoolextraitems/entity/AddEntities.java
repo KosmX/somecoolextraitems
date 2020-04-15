@@ -16,7 +16,7 @@ public class AddEntities {
     Registry.register(
         Registry.ENTITY_TYPE,
         new Identifier("somecoolextraitems", "lava_zombie"),
-        FabricEntityTypeBuilder.create(EntityCategory.MONSTER, (EntityType.EntityFactory<NetherZombieEntity>) NetherZombieEntity::new).size(EntityDimensions.fixed(0.6f,1.95f)).setImmuneToFire().build()
+        FabricEntityTypeBuilder.create(EntityCategory.MONSTER, (EntityType.EntityFactory<NetherZombieEntity>) NetherZombieEntity::new).size(EntityDimensions.changing(0.6f,1.95f)).setImmuneToFire().build()
     )
     ;
 
@@ -24,7 +24,7 @@ public class AddEntities {
     Registry.register(
         Registry.ENTITY_TYPE,
         new Identifier("somecoolextraitems", "stone_golem"),
-        FabricEntityTypeBuilder.create(EntityCategory.MONSTER, (EntityType.EntityFactory<StoneZombieEntity>) StoneZombieEntity::new).size(EntityDimensions.fixed(0.6f, 1.95f)).build()
+        FabricEntityTypeBuilder.create(EntityCategory.MONSTER, (EntityType.EntityFactory<StoneZombieEntity>) StoneZombieEntity::new).size(EntityDimensions.changing(0.6f, 1.95f)).build()
     )
     ;
 
@@ -32,7 +32,7 @@ public class AddEntities {
     Registry.register(
         Registry.ENTITY_TYPE,
         new Identifier("somecoolextraitems", "boar"),
-        FabricEntityTypeBuilder.create(EntityCategory.CREATURE, (EntityType.EntityFactory<BoarEntity>) BoarEntity::new).size(EntityDimensions.fixed(0.9f, 0.9f)).build()
+        FabricEntityTypeBuilder.create(EntityCategory.CREATURE, (EntityType.EntityFactory<BoarEntity>) BoarEntity::new).size(EntityDimensions.changing(0.9f, 0.9f)).build()
     )
     ;
 
@@ -57,7 +57,7 @@ public class AddEntities {
     Registry.register(
         Registry.ENTITY_TYPE,
         new Identifier("somecoolextraitems", "skeleton"),
-        FabricEntityTypeBuilder.create(EntityCategory.MONSTER, (EntityType.EntityFactory<SkeletonMinion>) SkeletonMinion::new).size(EntityDimensions.fixed(0.6F, 1.99F)).build()
+        FabricEntityTypeBuilder.create(EntityCategory.MONSTER, (EntityType.EntityFactory<SkeletonMinion>) SkeletonMinion::new).size(EntityDimensions.changing(0.6F, 1.99F)).build()
     );
 
     public AddEntities(){
