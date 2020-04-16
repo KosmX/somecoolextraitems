@@ -38,5 +38,7 @@
     "item.somecoolextraitems.boar_spawn_egg": "Boar Spawn Egg",
     "entity.somecoolextraitems.boar": "Boar",
     "item.somecoolextraitems.witch_spawn_egg": "Witch Spawn Egg",
-    "entity.somecoolextraitems.witch": "Witch"
+    "entity.somecoolextraitems.witch": "Witch",
+    "entity.somecoolextraitems.skeleton": "Skeleton",
+    "item.somecoolextraitems.skeleton_rod": "Skeleton Spawner Rod"
 }

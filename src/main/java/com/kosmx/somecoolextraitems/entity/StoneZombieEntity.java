@@ -1,5 +1,7 @@
 package com.kosmx.somecoolextraitems.entity;
 
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnType;
 import net.minecraft.entity.ai.goal.FollowTargetGoal;
@@ -27,6 +29,7 @@ import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import java.util.RandomAccess;
 
+
 //import com.kosmx.somecoolextraitems.Main;
 
 //import org.apache.logging.log4j.Level;
@@ -51,7 +54,9 @@ public class StoneZombieEntity extends ZombieEntity {
       if(player.getStackInHand(Hand.MAIN_HAND).getItem() instanceof PickaxeItem){
         //((PickaxeItem)player.getStackInHand(Hand.MAIN_HAND).getItem()).getMiningSpeed(player.getStackInHand(Hand.MAIN_HAND), new BlockState());
         //Main.log(Level.INFO, "uses pickaxe");
-        amount = amount * 3f;
+        int efficiency = EnchantmentHelper.getLevel(Enchantments.EFFICIENCY, player.getStackInHand(Hand.MAIN_HAND));
+        amount = (float) (amount * 3f + ( efficiency * (1+efficiency/5f) * (amount/2f + 1)));
+          
       }
     }
     return super.damage(source, amount);
@@ -63,6 +68,7 @@ public class StoneZombieEntity extends ZombieEntity {
   // net.minecraft.entity.mob.MagmaCubeEntity
   // net.minecraft.entity.mob.ZombiePigmanEntity
   // net.minecraft.entity.mob.EndermanEntity
+  //net.minecraft.entity.passive.SheepEntity
 
 
 
@@ -71,6 +77,10 @@ public class StoneZombieEntity extends ZombieEntity {
     this.goalSelector.add(8, new LookAroundGoal(this));
     this.initCustomGoals();
   }
+
+  //public void onDeath(DamageSource source){
+  //  if 
+  //}
 
   protected void initCustomGoals() {
     this.goalSelector.add(2, new ZombieAttackGoal(this, 1.0D, false));

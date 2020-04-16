@@ -15,10 +15,10 @@ public class MoblordEntityModel<T extends LivingEntity> extends PlayerEntityMode
         super.setAngles(livingEntity, f, g, h, i, j);
         this.rightArm.pitch = 0f;
         this.leftArm.pitch = 0;
-        this.rightLeg.pitch = 0;
-        this.leftLeg.pitch = 0;
-        this.rightPantLeg.pitch = 0;
-        this.leftPantLeg.pitch = 0;
+        this.rightLeg.pitch = this.rightLeg.pitch/8;
+        this.leftLeg.pitch = this.leftLeg.pitch/8;
+        this.rightPantLeg.pitch = this.rightPantLeg.pitch/8;
+        this.leftPantLeg.pitch = this.leftPantLeg.pitch/8;
         this.rightSleeve.pitch = 0f;
         this.leftSleeve.pitch = 0;
         if(livingEntity.getMainArm() == Arm.RIGHT){

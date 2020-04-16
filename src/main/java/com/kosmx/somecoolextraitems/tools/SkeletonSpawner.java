@@ -38,9 +38,9 @@ public class SkeletonSpawner extends SpawnerTool {
 
     @Override
     protected boolean trySpawnMinion(LivingEntity user) {
-        int x = user.getRandom().nextInt(9) + (int)user.getX() - 5;
-        int y = user.getRandom().nextInt(9) + (int)user.getY() - 5;
-        int z = user.getRandom().nextInt(9) + (int)user.getZ() - 5;
+        double x = user.getRandom().nextInt(9) + (int)user.getX() - 5.5;
+        double y = user.getRandom().nextInt(9) + (int)user.getY() - 5.5;
+        double z = user.getRandom().nextInt(9) + (int)user.getZ() - 5.5;
         boolean bl = SkeletonEntity.canSpawnIgnoreLightLevel(EntityType.SKELETON, user.world, SpawnType.SPAWNER, new BlockPos((double)x, (double)y, (double)z), new Random()) && user.world.isAir(new BlockPos(x, y, z)) && !user.world.isAir(new BlockPos(x, y-1, z));
         //System.out.print("Spawn ");
         if (bl){

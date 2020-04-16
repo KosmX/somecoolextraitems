@@ -22,6 +22,7 @@ public class SkeletonMinion extends SkeletonEntity {
     public SkeletonMinion(EntityType<? extends SkeletonEntity> entityType, World world) {
         super(entityType, world);
         //net.minecraft.entity.passive.WolfEntity
+        this.experiencePoints = 0;
     }
 
     protected void initGoals() {
@@ -37,5 +38,6 @@ public class SkeletonMinion extends SkeletonEntity {
         }));
      }
 
+     
 
 }

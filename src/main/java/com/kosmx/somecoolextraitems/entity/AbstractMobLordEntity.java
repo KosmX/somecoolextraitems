@@ -109,9 +109,9 @@ public abstract class AbstractMobLordEntity extends HostileEntity implements Mob
 
 	protected int setSummonCooldown(){
 		if (this.world.getDifficulty() == Difficulty.HARD){
-			return this.getRandom().nextInt(180) + 160;
+			return this.getRandom().nextInt(120) + 100;
 		}
-		return this.getRandom().nextInt(240) + 160;
+		return this.getRandom().nextInt(180) + 160;
 	}
 
 	protected void playStepSound(){

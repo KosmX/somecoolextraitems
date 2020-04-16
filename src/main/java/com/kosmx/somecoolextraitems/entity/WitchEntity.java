@@ -54,15 +54,15 @@ public class WitchEntity extends AbstractMobLordEntity {
    public EntityData initialize(IWorld world, LocalDifficulty difficulty, SpawnType spawnType, @Nullable EntityData entityData, @Nullable CompoundTag entityTag){
         EntityData data = super.initialize(world, difficulty, spawnType, entityData, entityTag);
         this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(AddItems.SkeletonRod));
-        this.handDropChances[EquipmentSlot.MAINHAND.getArmorStandSlotId()] = 0.1f;
+        this.handDropChances[EquipmentSlot.MAINHAND.getArmorStandSlotId()] = 0.2f;
         return data;
    }
 
     @Override
     public boolean trySpawnMinion() {
-        int x = this.getRandom().nextInt(9) + (int)this.getX() - 5;
-        int y = this.getRandom().nextInt(9) + (int)this.getY() - 5;
-        int z = this.getRandom().nextInt(9) + (int)this.getZ() - 5;
+        double x = this.getRandom().nextInt(9) + (int)this.getX() - 5.5;
+        double y = this.getRandom().nextInt(9) + (int)this.getY() - 5.5;
+        double z = this.getRandom().nextInt(9) + (int)this.getZ() - 5.5;
         boolean bl = SkeletonEntity.canSpawnIgnoreLightLevel(EntityType.SKELETON, this.world, SpawnType.SPAWNER, new BlockPos((double)x, (double)y, (double)z), new Random()) && this.world.isAir(new BlockPos(x, y, z)) && !this.world.isAir(new BlockPos(x, y-1, z));
         //System.out.print("Spawn ");
         if (bl){
@@ -107,13 +107,13 @@ public class WitchEntity extends AbstractMobLordEntity {
         return 256;
     }
     public static boolean canSpawn(EntityType<NetherZombieEntity> type, IWorld world, SpawnType spawnType, BlockPos pos,RandomAccess random) {
-        return world.getDifficulty() != Difficulty.PEACEFUL && !world.isAir(pos.add(0, -1, 0)) && world.getLightLevel(pos) < 5;
+        return world.getDifficulty() != Difficulty.PEACEFUL && !world.isAir(pos.add(0, -1, 0)) && world.getLightLevel(pos) < 7;
     }
 
 
 
     public boolean canSpawn(IWorld iWorld_1, SpawnType spawnType_1) {BlockPos entityPos = new BlockPos(this.getX(), this.getY(), this.getZ());
-        return !iWorld_1.isAir(entityPos.add(0, -1, 0));
+        return !iWorld_1.isAir(entityPos.add(0, -1, 0)) && world.getLightLevel(entityPos) < 7;
     }
 
 }

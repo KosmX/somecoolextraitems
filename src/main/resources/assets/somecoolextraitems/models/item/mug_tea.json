@@ -2,7 +2,6 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "somecoolextraitems:items/mug/base",
-		"1": "somecoolextraitems:items/mug/base",
 		"2": "somecoolextraitems:items/mug/tea",
 		"particle": "somecoolextraitems:items/mug/base"
 	},
@@ -14,7 +13,7 @@
 			"faces": {
 				"north": {"uv": [0, 0, 12, 12], "texture": "#0"},
 				"east": {"uv": [0, 0, 1, 12], "texture": "#0"},
-				"south": {"uv": [2, 2, 14, 14], "texture": "#1"},
+				"south": {"uv": [2, 2, 14, 14], "texture": "#0"},
 				"west": {"uv": [0, 0, 1, 12], "texture": "#0"},
 				"up": {"uv": [0, 0, 12, 1], "texture": "#0"},
 				"down": {"uv": [0, 0, 12, 1], "texture": "#0"}
@@ -155,6 +154,7 @@
 			}
 		}
 	],
+	"gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [1, 90, 65],
@@ -177,7 +177,7 @@
 			"scale": [0.3, 0.3, 0.3]
 		},
 		"ground": {
-			"translation":[0, 3, 0],
+			"translation": [0, 3, 0],
 			"scale": [0.3, 0.3, 0.3]
 		},
 		"gui": {
