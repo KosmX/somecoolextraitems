@@ -385,13 +385,13 @@ public class BoarEntity extends AnimalEntity {
         ATTACKING_SPEED_BOOST = (new EntityAttributeModifier(ATTACKING_SPEED_BOOST_UUID, "Attacking speed boost", 0.2d, EntityAttributeModifier.Operation.ADDITION)).setSerialize(false);
     }
 
-    public static boolean canSpawn(EntityType<BoarEntity> type, IWorld world, SpawnType spawn, BlockPos pos, RandomAccess random){
+    /*public static boolean canSpawn(EntityType<BoarEntity> type, IWorld world, SpawnType spawn, BlockPos pos, RandomAccess random){
         return !world.isAir(pos.add(0, -1, 0)) && pos.getY() >= 62;
     }
 
     public boolean canSpawn(IWorld world, SpawnType spawnType){
         BlockPos pos = new BlockPos(this.getX(), this.getY(), this.getZ());
         return !world.isAir(pos.add(0, -1, 0)) && this.getY() >= 62;
-    }
+    }*/
 
 }

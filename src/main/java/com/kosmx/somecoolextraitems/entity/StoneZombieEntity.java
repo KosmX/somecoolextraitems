@@ -14,6 +14,7 @@ import net.minecraft.entity.attribute.ClampedEntityAttribute;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -27,6 +28,8 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
+
+import java.util.Random;
 import java.util.RandomAccess;
 
 
@@ -106,10 +109,6 @@ public class StoneZombieEntity extends ZombieEntity {
     return ItemStack.EMPTY;
   }
 
-  public static boolean canSpawn(EntityType<NetherZombieEntity> type, IWorld world, SpawnType spawnType, BlockPos pos,
-      RandomAccess random) {
-  return world.getDifficulty() != Difficulty.PEACEFUL && !world.isAir(pos.add(0, -1, 0)) && pos.getY() < 50;
-}
 
 
 
@@ -133,4 +132,8 @@ public class StoneZombieEntity extends ZombieEntity {
  protected SoundEvent getStepSound() {
     return SoundEvents.BLOCK_STONE_STEP;
  }
+
+    public static boolean canSpawn(EntityType<StoneZombieEntity> stoneZombieEntityEntityType, IWorld iWorld, SpawnType spawnType, BlockPos blockPos, Random random) {
+      return canSpawnInDark(stoneZombieEntityEntityType, iWorld,spawnType, blockPos, random) && blockPos.getY() < 50;
+    }
 }

@@ -5,8 +5,11 @@ import java.util.RandomAccess;
 
 import javax.annotation.Nullable;
 
+import com.kosmx.somecoolextraitems.Client;
 import com.kosmx.somecoolextraitems.items.AddItems;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
@@ -34,11 +37,17 @@ public class WitchEntity extends AbstractMobLordEntity {
 
     public void tickMovement(){
         super.tickMovement();
-        if (this.world.isClient){
-            this.world.addParticle(new DustParticleEffect(0.5f, 0.6f, 1f, 1.3f), false, this.getParticleX(0.3d) , this.getY() + this.getRandom().nextFloat()/2, this.getParticleZ(0.3d), (this.getRandom().nextFloat()-0.5f)/8, -0.1f, (this.getRandom().nextFloat()-0.5f)/8);
-            this.world.addParticle(new DustParticleEffect(0.5f, 0.6f, 1f, 1.3f), false, this.getParticleX(0.5d) , this.getY() + this.getRandom().nextFloat()/3, this.getParticleZ(0.5d), (this.getRandom().nextFloat()-0.5f)/8, -0.1f, (this.getRandom().nextFloat()-0.5f)/8);            this.world.addParticle(new DustParticleEffect(0.4f, 0.5f, 1f, 1.6f), false, this.getParticleX(0.3d) , this.getY() + this.getRandom().nextFloat()/3, this.getParticleZ(0.3d), (this.getRandom().nextFloat()-0.5f)/8, -0.1f, (this.getRandom().nextFloat()-0.5f)/8);
-            this.world.addParticle(new DustParticleEffect(0.5f, 0.6f, 1f, 1.3f), false, this.getParticleX(0.7d) , this.getY() + this.getRandom().nextFloat()/6, this.getParticleZ(0.7d), (this.getRandom().nextFloat()-0.5f)/8, -0.1f, (this.getRandom().nextFloat()-0.5f)/8);
+        if (this.world.isClient) {
+            addParticles();
         }
+    }
+
+    @Environment(EnvType.CLIENT)
+    private void addParticles(){
+        this.world.addParticle(new DustParticleEffect(0.5f, 0.6f, 1f, 1.3f), false, this.getParticleX(0.3d) , this.getY() + this.getRandom().nextFloat()/2, this.getParticleZ(0.3d), (this.getRandom().nextFloat()-0.5f)/8, -0.1f, (this.getRandom().nextFloat()-0.5f)/8);
+        this.world.addParticle(new DustParticleEffect(0.5f, 0.6f, 1f, 1.3f), false, this.getParticleX(0.5d) , this.getY() + this.getRandom().nextFloat()/3, this.getParticleZ(0.5d), (this.getRandom().nextFloat()-0.5f)/8, -0.1f, (this.getRandom().nextFloat()-0.5f)/8);            this.world.addParticle(new DustParticleEffect(0.4f, 0.5f, 1f, 1.6f), false, this.getParticleX(0.3d) , this.getY() + this.getRandom().nextFloat()/3, this.getParticleZ(0.3d), (this.getRandom().nextFloat()-0.5f)/8, -0.1f, (this.getRandom().nextFloat()-0.5f)/8);
+        this.world.addParticle(new DustParticleEffect(0.5f, 0.6f, 1f, 1.3f), false, this.getParticleX(0.7d) , this.getY() + this.getRandom().nextFloat()/6, this.getParticleZ(0.7d), (this.getRandom().nextFloat()-0.5f)/8, -0.1f, (this.getRandom().nextFloat()-0.5f)/8);
+
     }
 
 
@@ -112,8 +121,8 @@ public class WitchEntity extends AbstractMobLordEntity {
 
 
 
-    public boolean canSpawn(IWorld iWorld_1, SpawnType spawnType_1) {BlockPos entityPos = new BlockPos(this.getX(), this.getY(), this.getZ());
-        return !iWorld_1.isAir(entityPos.add(0, -1, 0)) && world.getLightLevel(entityPos) < 7;
-    }
+    //public boolean canSpawn(IWorld iWorld_1, SpawnType spawnType_1) {BlockPos entityPos = new BlockPos(this.getX(), this.getY(), this.getZ());
+    //    return !iWorld_1.isAir(entityPos.add(0, -1, 0)) && world.getLightLevel(entityPos) < 7;
+    //}
 
 }

@@ -24,6 +24,7 @@
     "server": []
   },
   "mixins": [
+    "somecoolextraitems.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.4.0",
