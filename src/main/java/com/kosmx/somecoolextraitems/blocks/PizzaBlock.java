@@ -1,10 +1,6 @@
 package com.kosmx.somecoolextraitems.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockPlacementEnvironment;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityContext;
+import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stat.Stats;
@@ -17,7 +13,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
@@ -30,7 +25,7 @@ public class PizzaBlock extends Block {
       this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(BITES, 0));
    }
 
-   public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, EntityContext context) {
+   public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
       return BITES_TO_SHAPE[(Integer)state.get(BITES)];
    }
 
@@ -49,7 +44,7 @@ public class PizzaBlock extends Block {
       return this.tryEat(world, pos, state, player);
    }
 
-   private ActionResult tryEat(IWorld world, BlockPos pos, BlockState state, PlayerEntity player) {
+   private ActionResult tryEat(World world, BlockPos pos, BlockState state, PlayerEntity player) {
       if (!player.canConsume(false)) {
          return ActionResult.PASS;
       } else {
@@ -66,7 +61,9 @@ public class PizzaBlock extends Block {
       }
    }
 
-   public BlockState getStateForNeighborUpdate(BlockState state, Direction facing, BlockState neighborState, IWorld world, BlockPos pos, BlockPos neighborPos) {
+
+
+   public BlockState getStateForNeighborUpdate(BlockState state, Direction facing, BlockState neighborState, World world, BlockPos pos, BlockPos neighborPos) {
       return facing == Direction.DOWN && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : super.getStateForNeighborUpdate(state, facing, neighborState, world, pos, neighborPos);
    }
 
@@ -86,9 +83,6 @@ public class PizzaBlock extends Block {
       return true;
    }
 
-   public boolean canPlaceAtSide(BlockState world, BlockView view, BlockPos pos, BlockPlacementEnvironment env) {
-      return false;
-   }
 
    static {
       BITES = IntProperty.of("pizza_bites", 0, 7);

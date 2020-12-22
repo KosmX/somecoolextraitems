@@ -42,7 +42,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 //import net.minecraft.entity.ai.goal.AttackGoal;
 
@@ -85,13 +84,14 @@ public class BoarEntity extends AnimalEntity {
         this.goalSelector.add(1, new BoarEntity.FollowPlayerIfAngryGoal(this));
     }
 
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(12.0D);
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
+    @Override
+    protected void initDataTracker() {
+        super.initDataTracker();
+        this.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(12.0D);
+        this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.25D);
         // this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
         // this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-        this.getAttributes().register(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4d);
+        this.getAttributes().register(EntityAttributes.GENERIC_ATTACK_DAMAGE).setBaseValue(4d);
     }
 
     @Nullable
@@ -100,7 +100,7 @@ public class BoarEntity extends AnimalEntity {
     //}
 
     public boolean tryAttack(Entity target){
-        boolean bl = target.damage(DamageSource.mob(this), (float)((int)this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).getValue()));
+        boolean bl = target.damage(DamageSource.mob(this), (float)((int)this.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE).getValue()));
         if(bl){
             this.dealDamage(this, target);
         }
@@ -108,7 +108,7 @@ public class BoarEntity extends AnimalEntity {
     }
 
     public void mobTick(){
-        EntityAttributeInstance entityAttributeInstance = this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED);
+        EntityAttributeInstance entityAttributeInstance = this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
         LivingEntity entity = getAttacker();
         if(this.isAngry()){
             if(!this.isBaby() && entityAttributeInstance.hasModifier(ATTACKING_SPEED_BOOST)){

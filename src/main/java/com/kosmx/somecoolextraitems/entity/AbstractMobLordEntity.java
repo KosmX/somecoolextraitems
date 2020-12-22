@@ -26,7 +26,8 @@ public abstract class AbstractMobLordEntity extends HostileEntity implements Mob
 	private final FireballAttackGoal rangedAttackGoal = new FireballAttackGoal(this);
 	private int summonCooldown = 0;
 	private boolean doesRangedAttack = true;
-	private final MeleeAttackGoal meleeAttackGoal = new MeleeAttackGoal(this, 1.2d, false); /*{
+	private final MeleeAttackGoal meleeAttackGoal = new MeleeAttackGoal(this, 1.2d, false);
+	/*{
 		public void stop(){
 			super.stop();
 			AbstractMobLordEntity.this.setAttacking(false);
@@ -86,9 +87,11 @@ public abstract class AbstractMobLordEntity extends HostileEntity implements Mob
         return false;
     }
 
-	protected void initAttributes(){
-		super.initAttributes();
-		this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.3d);
+
+	@Override
+	protected void initDataTracker(){
+		super.initDataTracker();
+		this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.3d);
 	}
 
 	protected void mobTick(){
@@ -227,7 +230,7 @@ public abstract class AbstractMobLordEntity extends HostileEntity implements Mob
 						double x = target.getX() - this.mobLord.getX() + vec3d.x;
 						double z = target.getZ() - this.mobLord.getZ() + vec3d.z;
 						double y = target.getY() - this.mobLord.getY();
-						world.playLevelEvent((PlayerEntity)null, 1016, new BlockPos(this.mobLord), 0);
+						world.syncWorldEvent(null, 1016, new BlockPos(this.mobLord), 0);
 						MagicalFireballEntity fireball = new MagicalFireballEntity(world, this.mobLord, x, y, z);
 						fireball.updatePosition(this.mobLord.getX() + vec3d.x , this.mobLord.getY() + 1.7d, this.mobLord.getZ() + vec3d.z);
 						world.spawnEntity(fireball);

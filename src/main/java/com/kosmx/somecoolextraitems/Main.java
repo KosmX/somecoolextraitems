@@ -10,6 +10,7 @@ import com.kosmx.somecoolextraitems.items.AddItems;
 import com.kosmx.somecoolextraitems.blocks.AddBlocks;
 //import com.mojang.datafixers.types.templates.Tag;
 
+import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,6 +29,9 @@ public class Main implements ModInitializer {
     
     //net.minecraft.potion.Potions
 
+    public static Identifier sceiIdentifier(String path){
+        return new Identifier(MOD_ID, path);
+    }
 
 
     @Override
