@@ -1,4 +1,4 @@
-package com.kosmx.somecoolextraitems.entity;
+/*package com.kosmx.somecoolextraitems.entity;
 
 import java.util.EnumSet;
 import java.util.UUID;
@@ -189,12 +189,12 @@ public class GhostEntity extends HostileEntity {
       BlockPos.Mutable mutable = new BlockPos.Mutable(x, y, z);
 
       while(mutable.getY() > 0 && !this.world.getBlockState(mutable).getMaterial().blocksMovement()) {
-         mutable.setOffset(Direction.DOWN);
+         mutable.move(Direction.DOWN);
       }
 
       BlockState blockState = this.world.getBlockState(mutable);
       boolean bl = blockState.getMaterial().blocksMovement();
-      boolean bl2 = blockState.getFluidState().matches(FluidTags.WATER);
+      boolean bl2 = blockState.getFluidState().isIn(FluidTags.WATER);
       if (bl && !bl2) {
          boolean bl3 = this.teleport(x, y, z, false);
          if (bl3) {
@@ -363,3 +363,4 @@ public class GhostEntity extends HostileEntity {
       }
    }
 }
+*/

@@ -1,4 +1,4 @@
-package com.kosmx.somecoolextraitems.entity;
+/*package com.kosmx.somecoolextraitems.entity;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.control.FlightMoveControl;
@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 public class NightBat extends HostileEntity {
     /** {@link net.minecraft.entity.passive.BeeEntity}.       //code from here
      *
-     */
+     *
     protected NightBat(EntityType<? extends HostileEntity> type, World world) {
         super(type, world);
         this.moveControl = new FlightMoveControl(this, 20, true);
@@ -58,3 +58,6 @@ public class NightBat extends HostileEntity {
     private static Goal BatAttackGoal(NightBat nightBat) {
     }
 }
+
+
+ */

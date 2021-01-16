@@ -1,4 +1,4 @@
-package com.kosmx.somecoolextraitems.entity;
+/*package com.kosmx.somecoolextraitems.entity;
 
 import com.kosmx.somecoolextraitems.items.AddItems;
 import net.fabricmc.api.EnvType;
@@ -6,7 +6,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.SpawnType;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.SkeletonEntity;
@@ -16,10 +16,9 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
-
+import net.minecraft.world.WorldAccess;
 import javax.annotation.Nullable;
 import java.util.Random;
 import java.util.RandomAccess;
@@ -58,7 +57,7 @@ public class NightWitchEntity extends AbstractMobLordEntity {
     }
 
     @Nullable
-   public EntityData initialize(IWorld world, LocalDifficulty difficulty, SpawnType spawnType, @Nullable EntityData entityData, @Nullable CompoundTag entityTag){
+   public EntityData initialize(WorldAccess world, LocalDifficulty difficulty, SpawnReason spawnType, @Nullable EntityData entityData, @Nullable CompoundTag entityTag){
         EntityData data = super.initialize(world, difficulty, spawnType, entityData, entityTag);
         this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(AddItems.SkeletonRod));
         this.handDropChances[EquipmentSlot.MAINHAND.getArmorStandSlotId()] = 0.2f;
@@ -70,7 +69,7 @@ public class NightWitchEntity extends AbstractMobLordEntity {
         double x = this.getRandom().nextInt(9) + (int)this.getX() - 5.5;
         double y = this.getRandom().nextInt(9) + (int)this.getY() - 5.5;
         double z = this.getRandom().nextInt(9) + (int)this.getZ() - 5.5;
-        boolean bl = SkeletonEntity.canSpawnIgnoreLightLevel(EntityType.SKELETON, this.world, SpawnType.SPAWNER, new BlockPos((double)x, (double)y, (double)z), new Random()) && this.world.isAir(new BlockPos(x, y, z)) && !this.world.isAir(new BlockPos(x, y-1, z));
+        boolean bl = SkeletonEntity.canSpawnIgnoreLightLevel(EntityType.SKELETON, this.world, SpawnReason.SPAWNER, new BlockPos((double)x, (double)y, (double)z), new Random()) && this.world.isAir(new BlockPos(x, y, z)) && !this.world.isAir(new BlockPos(x, y-1, z));
         //System.out.print("Spawn ");
         if (bl){
             //System.out.println("success");
@@ -80,7 +79,7 @@ public class NightWitchEntity extends AbstractMobLordEntity {
             SkeletonEntity skeleton = (SkeletonEntity)EntityType.SKELETON.create(this.world);
             skeleton.resetPosition(x, y, z);
             skeleton.updatePosition(x, y, z);
-            skeleton.initialize(this.world, this.world.getLocalDifficulty(new BlockPos(x, y, z)), SpawnType.SPAWNER, (EntityData)null, (CompoundTag)null);
+            skeleton.initialize(this.world, this.world.getLocalDifficulty(new BlockPos(x, y, z)), SpawnReason.SPAWNER, (EntityData)null, (CompoundTag)null);
             if(this.getRandom().nextBoolean() && (this.world.getDifficulty() != Difficulty.HARD || (this.getTarget() != null && this.getTarget().squaredDistanceTo(this) > 10))){
                 skeleton.equipStack(EquipmentSlot.MAINHAND, new ItemStack( Items.BOW));
             }
@@ -92,7 +91,7 @@ public class NightWitchEntity extends AbstractMobLordEntity {
             //skeleton.setCanPickUpLoot(this.random.nextFloat() < 0.55F * this.world.getLocalDifficulty(this.getBlockPos()).getClampedLocalDifficulty());
             skeleton.setTarget(this.getTarget());
             this.world.spawnEntity(skeleton);
-            this.world.playLevelEvent(2004, new BlockPos(skeleton), 0);
+            this.world.syncWorldEvent(2004, new BlockPos(skeleton), 0);
             skeleton.playSpawnEffects();
         }
         //else{System.out.println("failed");}
@@ -113,7 +112,7 @@ public class NightWitchEntity extends AbstractMobLordEntity {
     public int maxTrials() {
         return 256;
     }
-    public static boolean canSpawn(EntityType<NetherZombieEntity> type, IWorld world, SpawnType spawnType, BlockPos pos,RandomAccess random) {
+    public static boolean canSpawn(EntityType<NetherZombieEntity> type, WorldAccess world, SpawnReason spawnType, BlockPos pos,RandomAccess random) {
         return world.getDifficulty() != Difficulty.PEACEFUL && !world.isAir(pos.add(0, -1, 0)) && world.getLightLevel(pos) < 7;
     }
 
@@ -124,3 +123,5 @@ public class NightWitchEntity extends AbstractMobLordEntity {
     //}
 
 }
+
+ */

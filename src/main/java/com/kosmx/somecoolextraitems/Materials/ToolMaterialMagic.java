@@ -18,7 +18,7 @@ public class ToolMaterialMagic implements ToolMaterial {
     }
 
     @Override
-    public float getMiningSpeed() {
+    public float getMiningSpeedMultiplier() {
         //LOGGER.log(Level.INFO, "["+"somecoolextraitems"+"] " + "mining speed has been requested");
         return 1f;
     }

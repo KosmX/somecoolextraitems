@@ -1,14 +1,10 @@
 package com.kosmx.somecoolextraitems.blocks;
 
 import com.kosmx.somecoolextraitems.Main;
-import com.kosmx.somecoolextraitems.tools.toolTags;
-
-import net.fabricmc.fabric.api.biome.v1.BiomeModification;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.impl.biome.modification.BiomeModificationImpl;
+import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
@@ -20,10 +16,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.decorator.ConfiguredDecorator;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
@@ -31,8 +25,8 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 
 public class AddBlocks {
-    public static final Block NetherGoldOre = new Block(FabricBlockSettings.of(Material.STONE).breakByHand(false).breakByTool(toolTags.PICKAXES, 2).strength(3, 0.4f));
-    public static final Block NetherGoldBlock = new Block(FabricBlockSettings.of(Material.METAL).breakByHand(false).breakByTool(toolTags.PICKAXES, 2).strength(3, 0.4f));
+    public static final Block NetherGoldOre = new Block(FabricBlockSettings.of(Material.STONE).breakByHand(false).breakByTool(FabricToolTags.PICKAXES, 2).strength(3, 0.4f));
+    public static final Block NetherGoldBlock = new Block(FabricBlockSettings.of(Material.METAL).breakByHand(false).breakByTool(FabricToolTags.PICKAXES, 2).strength(3, 0.4f));
     public static final Block SugarBlock = new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC).strength(0.5f, 0.1f).sounds(BlockSoundGroup.SAND));
 
 

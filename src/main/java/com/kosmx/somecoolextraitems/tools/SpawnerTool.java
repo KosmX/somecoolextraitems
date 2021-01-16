@@ -24,7 +24,7 @@ public abstract class SpawnerTool extends ToolItem{
         ItemStack item = user.getStackInHand(hand);
         if(!world.isClient){
             this.summonMinions(user);
-            user.world.playLevelEvent(2004, user.getBlockPos(), 0);
+            user.world.syncWorldEvent(2004, user.getBlockPos(), 0);
             item.damage(1, (LivingEntity)user, (Consumer<LivingEntity>)((p) -> {p.sendToolBreakStatus(user.getActiveHand());}));
 
         }

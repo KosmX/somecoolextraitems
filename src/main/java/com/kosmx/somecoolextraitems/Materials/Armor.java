@@ -65,4 +65,10 @@ public enum Armor implements ArmorMaterial {
     @Override
     public float getToughness() {
         return this.toughness;
-    }}
+    }
+
+    @Override
+    public float getKnockbackResistance() {
+        return 0;
+    }
+}

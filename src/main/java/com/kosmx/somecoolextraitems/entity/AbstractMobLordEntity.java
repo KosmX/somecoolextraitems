@@ -1,5 +1,6 @@
 package com.kosmx.somecoolextraitems.entity;
 
+import com.kosmx.somecoolextraitems.entity.AbstractMobLordEntity.FireballAttackGoal;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -94,6 +95,10 @@ public abstract class AbstractMobLordEntity extends HostileEntity implements Mob
 		this.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue(0.3d);
 	}
 
+	/**
+	 * {@link net.minecraft.entity.mob.BlazeEntity}
+	 * {@link net.minecraft.entity.mob.EvokerEntity}
+	 */
 	protected void mobTick(){
 		//this.world.addParticle(new DustParticleEffect(), alwaysSpawn, x, y, z, velocityX, velocityY, velocityZ);
 
@@ -230,8 +235,8 @@ public abstract class AbstractMobLordEntity extends HostileEntity implements Mob
 						double x = target.getX() - this.mobLord.getX() + vec3d.x;
 						double z = target.getZ() - this.mobLord.getZ() + vec3d.z;
 						double y = target.getY() - this.mobLord.getY();
-						world.syncWorldEvent(null, 1016, new BlockPos(this.mobLord), 0);
-						MagicalFireballEntity fireball = new MagicalFireballEntity(world, this.mobLord, x, y, z);
+						world.syncWorldEvent(null, 1016, new BlockPos(this.mobLord.getPos()), 0);
+						MagicalFireballEntity fireball = new MagicalFireballEntity(AddEntities.MAGIC_PROJECTILE, world, this.mobLord, x, y, z); //TODO
 						fireball.updatePosition(this.mobLord.getX() + vec3d.x , this.mobLord.getY() + 1.7d, this.mobLord.getZ() + vec3d.z);
 						world.spawnEntity(fireball);
 						this.cooldown = -10;

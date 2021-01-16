@@ -32,9 +32,9 @@ public class LootManager{
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
             if (identifier.equals(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                .withRolls(table)
-                .withEntry(ItemEntry.builder(item));
-                supplier.withPool(poolBuilder);
+                .rolls(table)
+                .with(ItemEntry.builder(item));
+                supplier.pool(poolBuilder);
             }
         });
     }

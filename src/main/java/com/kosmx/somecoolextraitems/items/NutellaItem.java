@@ -1,6 +1,6 @@
 package com.kosmx.somecoolextraitems.items;
 
-import net.minecraft.advancement.criterion.Criterions;
+import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -24,7 +24,7 @@ public class NutellaItem extends Item {
       super.finishUsing(stack, world, user);
       if (user instanceof ServerPlayerEntity) {
          ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity)user;
-         Criterions.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
+         Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
          serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
       }
 

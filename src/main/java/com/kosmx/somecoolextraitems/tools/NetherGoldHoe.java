@@ -8,7 +8,7 @@ import net.minecraft.item.ItemGroup;
 public class NetherGoldHoe extends HoeItem {
 
     public NetherGoldHoe(ToolMaterial material) {
-        super(material, 1f, new Item.Settings().group(ItemGroup.TOOLS));
+        super(material, 2, 1, new Item.Settings().group(ItemGroup.TOOLS));
     }
 
 }

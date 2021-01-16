@@ -1,0 +1,3 @@
+accessWidener	v1	named
+
+accessible method net/minecraft/world/biome/SpawnSettings <init> (FLjava/util/Map;Ljava/util/Map;Z)V
